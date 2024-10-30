@@ -4,28 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Mustang, Ford, Ford Mustang, Coches, Shelby, GT, Fastback, American Muscle, Dark Horse">
-    <meta name="description" content="Esta es una página para los amantes de los Mustang">
+    <meta name="description" content="Página para los amantes de los Mustang. Conoce la historia, modelos y características de estos icónicos coches.">
     <link rel="icon" href="shelb.png" type="image/png">
     <link rel="canonical" href="https://daniel-sanchez-del-campo.github.io/">
-    <title>El Rincon del MUSTANG</title>
+    <title>El Rincón del MUSTANG</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f0f0f0;
         }
 
         header {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
-            font-size: 1.5em;
+            font-size: 2em;
             text-align: center;
         }
 
@@ -35,26 +37,27 @@
         }
 
         ul {
-            list-style: none; /* No puntos por defecto */
+            list-style: none;
             margin: 0;
             padding: 0;
         }
 
         .nav > li {
             position: relative;
-            display: inline-block; /* Asegura que se comporten como elementos en línea */
+            display: inline-block;
         }
 
         .nav li a {
             background-color: #000;
             color: #fff;
             text-decoration: none;
-            padding: 10px 12px;
+            padding: 15px 20px;
             display: block;
+            transition: background-color 0.3s;
         }
 
         .nav li a:hover {
-            background-color: #434343;
+            background-color: #444;
         }
 
         .nav li ul {
@@ -62,6 +65,7 @@
             position: absolute;
             min-width: 140px;
             z-index: 1000;
+            background-color: #333;
         }
 
         .nav li:hover > ul {
@@ -70,6 +74,12 @@
 
         main {
             padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            color: #1a1a1a;
         }
 
         .content {
@@ -83,11 +93,20 @@
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .carousel-container:hover {
+            transform: scale(1.02);
         }
 
         .carousel {
-            width: 800px;
-            height: 400px;
+            width: 50%;
+            height: 300px;
             overflow: hidden;
             position: relative;
         }
@@ -114,41 +133,42 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            background-color: #1a1a1a;
             color: white;
+            position: relative;
         }
 
-        .carousel-container:nth-child(odd) {
-            background-color: #f4f4f4;
-        }
-
-        .carousel-container:nth-child(even) {
-            background-color: #ccc;
-        }
-
-        /* Estilo para listas dentro de la sección de contenido */
         .text ul {
-            list-style-type: disc; /* Usa puntos como marcador */
-            padding-left: 20px; /* Espacio a la izquierda */
-            margin-top: 10px; /* Espacio superior */
-            margin-bottom: 0; /* Sin margen inferior */
+            list-style-type: disc;
+            padding-left: 20px;
         }
 
         .text ul li {
-            margin-bottom: 5px; /* Espacio entre elementos de la lista */
-            display: list-item; /* Asegura que se muestren como elementos de lista */
+            margin-bottom: 5px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .carousel-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .carousel, .text {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">El Rincon del Mustang</div>
+        <div class="logo">El Rincón del Mustang</div>
     </header>
-    <div id="menu">
+    <nav id="menu">
         <ul class="nav">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="https://www.ford.es/turismos/nuevo-mustang#mustang">Página Ford</a></li>
-            <li><a href="#">Páginas compañeros</a>
+            <li><a href="#">Páginas compañeras</a>
                 <ul>
                     <li><a href="https://gemaa19.github.io/">Página Gema</a></li>
                     <li><a href="https://BeatrizSiguero.github.io/">Página Bea</a></li>
@@ -156,11 +176,11 @@
                 </ul>
             </li>
         </ul>
-    </div>
+    </nav>
     <main>
         <section>
-            <h1>Esta es una página sobre los Mustang</h1>
-            <p>Aquí se va a hablar de los Ford Mustang.</p>
+            <h1>Bienvenido al mundo del Mustang</h1>
+            <p>Aquí podrás descubrir la historia y las características de los Ford Mustang, unos de los coches más icónicos de la historia del automovilismo.</p>
         </section>
         
         <section class="content">
@@ -172,7 +192,7 @@
                 </div>
                 <div class="text">
                     <h2>Ford Mustang Eleanor</h2>
-                    <p>Estamos ante uno de los modelos más buscados del mundo, especialmente desde que Fusion Motor Company anunciase que se hizo con los derechos para construir Mustang Eleanor Fastbacks de forma oficial.</p>
+                    <p>Uno de los modelos más buscados, especialmente desde que Fusion Motor Company anunció que construirá Mustang Eleanor Fastbacks de forma oficial.</p>
                     <ul>
                         <li>V8</li>
                         <li>608 CV</li>
@@ -184,7 +204,7 @@
             <div class="carousel-container">
                 <div class="text">
                     <h2>Ford Mustang GT 500KR</h2>
-                    <p>Con motivo del 60 aniversario que cumplirá la empresa en 2022, acaba de ser presentada la tercera generación del Shelby GT500KR. Las imágenes hablan por sí solas y, tal y como podemos ver en las fotos, se trata de una versión atiborrada de anabolizantes, tanto a nivel mecánico como a nivel estético.</p>
+                    <p>Presentada la tercera generación del Shelby GT500KR en conmemoración del 60 aniversario de la empresa en 2022. Un verdadero monstruo tanto mecánicamente como estéticamente.</p>
                     <ul>
                         <li>5.2 V8</li>
                         <li>900 CV</li>
@@ -206,7 +226,7 @@
                 </div>
                 <div class="text">
                     <h2>Hennessey Venom 1200 Mustang GT500</h2>
-                    <p>Hennessey Performance ha decidido lanzar una denominada versión Venom 1200, que como su propio nombre indica, extrae una desorbitada cifra de potencia del bloque de ocho cilindros. De hecho, se trata de uno de los muscle car más potentes jamás creado por la compañía texana.</p>
+                    <p>Hennessey Performance lanza una versión Venom 1200, uno de los muscle cars más potentes jamás creados, con un increíble bloque V8.</p>
                     <ul>
                         <li>5.2 V8</li>
                         <li>1.221 CV</li>
@@ -218,7 +238,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 - Todos los derechos reservados.</p>
+        <p>&copy; 2024 El Rincón del Mustang. Todos los derechos reservados.</p>
+        <p><a href="#menu" style="color: white; text-decoration: underline;">Volver arriba</a></p>
     </footer>
 
     <script>
@@ -236,15 +257,9 @@
                     images[index].classList.add('active');
                 }, 6000);
             });
-
-            const carouselContainers = document.querySelectorAll('.carousel-container');
-            carouselContainers.forEach(container => {
-                container.addEventListener('click', () => {
-                    window.location.href = '/registro'; // Cambia esta URL según sea necesario
-                });
-            });
         });
     </script>
 </body>
 </html>
+
 
