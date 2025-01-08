@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mustang, Ford, Ford Mustang, Coches, Shelby, GT, Fastback, American Muscle, Dark Horse">
+    <meta name="description" content="Página para los amantes de los Mustang. Conoce la historia, modelos y características de estos icónicos coches.">
+    <link rel="icon" href="shelb.png" type="image/png">
+    <link rel="canonical" href="https://daniel-sanchez-del-campo.github.io/">
+    <title>El Rincón del MUSTANG</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        #menu {
+            background-color: #333;
+            width: 100%;
+        }
+        #tiempo {
+    background-color: #a09c9c;
+    padding: 10px; /* Ajusta el espacio dentro del contenedor */
+    display: inline-block; /* Hace que el contenedor ajuste su tamaño al contenido */
+    border-radius: 8px; /* Opcional: si quieres bordes redondeados */
+}
+
+#tiempo ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#tiempo li {
+    display: inline-block; /* Hace que los elementos se alineen horizontalmente */
+    margin-right: 15px; /* Espaciado entre los elementos */
+}
+
+#tiempo li a {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+#tiempo li a:hover {
+    background-color: #444;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.fecha{
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav > li {
+    position: relative;
+    display: inline-block;
+}
+
+.nav li a {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav li a:hover {
+    background-color: #444;
+}
+
+.nav li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+    z-index: 1000;
+    background-color: #333;
+}
+
+.nav li:hover > ul {
+    display: block;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1, h2 {
+    color: #1a1a1a;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.carousel {
+    width: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    transition: opacity 1s ease, left 1s ease;
+}
+
+.carousel img.active {
+    left: 0;
+    opacity: 1;
+}
+
+.text {
+    max-width: 45%;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: white;
+    position: relative;
+}
+
+.text ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.text ul li {
+    margin-bottom: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .carousel-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .carousel, .text {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">El Rincón del Mustang</div>
+    </header>
+    <nav id="menu">
+        <ul class="nav">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="paso_tiempo.html">El paso del tiempo</a></li>
+            <li><a href="https://www.ford.es/turismos/nuevo-mustang#mustang">Página Ford</a></li>
+            <li><a href="enlaces.html">Páginas de interes</a></li>
+            <li><a href="capilla.html">La Gran Capilla</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h1>Evolucion del Mustang a lo largo de los años</h1>
+            <p>Vamos a ver como a ido evolucionando los Mustang a lo largo de los años, principalmente vamos a ver como han ido cambiado los diseños.</p>
+        </section>
+
+        <nav id="tiempo">
+            <h2>Modelos a destacar por el autor de la página:</h2>
+            <ul class="nav">
+                <li><a href="">1964</a></li>
+                <li><a href="">1967</a></li>
+                <li><a href="">2012</a></li>
+                <li><a href="">2017</a></li>
+                <li><a href="">2024</a></li>
+            </ul>
+        </nav>
+        
+        
+        <div class="text">
+            <h2>1964: El Nacimiento del Mustang</h2>
+            <p>El Ford Mustang fue lanzado oficialmente el 17 de abril de 1964 durante la Feria Mundial de Nueva York. El modelo original se destacó por su diseño deportivo, accesibilidad y una gama de motorizaciones potentes, convirtiéndose en un éxito instantáneo con más de 22,000 unidades vendidas en su primer día.</p>
+        </div>
+        <div class="text">
+            <h2>1967: Rediseño y Potencia</h2>
+            <p>En 1967, el Mustang experimentó su primer gran rediseño, con un tamaño más grande y más opciones de motorización, incluyendo el potente motor V8 de 390 pulgadas cúbicas. Esta versión consolidó al Mustang como uno de los muscle cars más deseados.</p>
+        </div>
+        <div class="text">
+            <h2>1971-1973: La Era de la Segunda Generación</h2>
+            <p>A principios de los 1970s, el Mustang se volvió más grande y más pesado, en respuesta a las regulaciones de seguridad y las preferencias del mercado. Sin embargo, el modelo de 1971-1973 mostró una disminución en la popularidad debido al aumento en los precios del combustible y la crisis del petróleo.</p>
+        </div>
+        <div class="text">
+            <h2>1974: El Mustang II</h2>
+            <p>En 1974, Ford introdujo el Mustang II. Este modelo fue una adaptación a la crisis del petróleo, ya que ofrecía un diseño más pequeño y eficiente en cuanto a consumo de combustible. Aunque este cambio fue controversial, permitió que el Mustang sobreviviera en un mercado que demandaba vehículos más económicos.</p>
+        </div>
+        <div class="text">
+            <h2>1979-1993: La Tercera Generación y la Resurrección del Mustang</h2>
+            <p>Con la llegada de la tercera generación en 1979, el Mustang pasó a utilizar la plataforma Fox, más versátil y con un enfoque en la eficiencia y el rendimiento. Durante esta época, el modelo fue rediseñado varias veces, pero fue en 1987 cuando el Mustang recuperó una imagen más deportiva, volviendo a sus raíces.</p>
+            <p>A principios de los 90s, el Mustang logró un renacimiento bajo la dirección de Ford, con un diseño más moderno y con motorizaciones más potentes, especialmente el Mustang GT.</p>
+        </div>
+        <div class="text">
+            <h2>1994-2004: La Cuarta Generación y la Modernización</h2>
+            <p>En 1994, el Mustang fue completamente rediseñado con un estilo más agresivo y moderno. Este rediseño tuvo un gran impacto y atrajo a una nueva generación de entusiastas. Durante esta década, el modelo se convirtió en un clásico más accesible, con motorizaciones V6 y V8, y se convirtió en un referente de los muscle cars en los EE. UU.</p>
+        </div>
+        <div class="text">
+            <h2>2005-2014: La Quinta Generación y la Conexión con el Pasado</h2>
+            <p>En 2005, el Mustang adoptó un diseño retro que evocaba el espíritu de los primeros modelos, lo que lo convirtió en una referencia de la cultura pop y un favorito en las películas y el cine. Durante este período, el modelo continuó evolucionando con más tecnología y un rendimiento mejorado, incluyendo motores más eficientes y versiones más potentes, como el Shelby GT500.</p>
+        </div>
+        <div class="text">
+            <h2>2015-2023: La Sexta Generación y la Globalización</h2>
+            <p>En 2015, el Mustang sufrió una nueva transformación con la incorporación de la plataforma global. Esta versión fue más moderna y tecnológica, incluyendo opciones como el motor EcoBoost de 2.3 litros, y se hizo disponible en mercados internacionales. A partir de 2015, el Mustang dejó de ser solo un ícono estadounidense, convirtiéndose en un modelo global disponible en más de 140 países.</p>
+            <p>En 2020, Ford lanzó una versión más potente y refinada del Mustang, con motores V8 de hasta 760 caballos de fuerza en el modelo Shelby GT500.</p>
+        </div>
+        <div class="text">
+            <h2>2024: La Séptima Generación y el Futuro</h2>
+            <p>En 2024, Ford presentó la séptima generación del Mustang, una nueva versión que mantiene las características clásicas del modelo, pero con un enfoque más moderno, incluyendo un diseño actualizado y una mayor integración de tecnologías digitales. Este modelo se ofrece con una gama de motores potentes, desde un V8 hasta un motor EcoBoost de cuatro cilindros, lo que asegura que el Mustang siga siendo un referente en el mundo de los deportivos accesibles.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 El Rincón del Mustang. Todos los derechos reservados.</p>
+        <p><a href="#menu" style="color: white; text-decoration: underline;">Volver arriba</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousels = document.querySelectorAll('.carousel');
+
+            carousels.forEach(carousel => {
+                let index = 0;
+                const images = carousel.querySelectorAll('img');
+                const totalImages = images.length;
+
+                setInterval(() => {
+                    images[index].classList.remove('active');
+                    index = (index + 1) % totalImages;
+                    images[index].classList.add('active');
+                }, 6000);
+            });
+        });
+    </script>
+    
+</body>
+</html>
