@@ -23,11 +23,32 @@
             padding: 20px;
             background-color: #1a1a1a;
             color: #ffffff;
+            position: relative;
         }
 
         .logo {
             font-size: 2em;
             text-align: center;
+        }
+
+        /* Menú de hamburguesa debajo del título */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+            width: 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 80px; /* Espacio debajo del título */
+            right: 20px;
+            z-index: 10;
+        }
+
+        .menu-toggle div {
+            height: 4px;
+            width: 100%;
+            background-color: #444; /* Gris oscuro */
         }
 
         nav {
@@ -113,32 +134,55 @@
             color: white;
             position: relative;
         }
-    </style>
-    <script type="application/ld+json">
-        {
-        "@context"; "https://schema.org",
-        "@type"; "BreadcrumbList",
-        "itemListElement"; [
-            {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Inicio",
-            "item": "https://daniel-sanchez-del-campo.github.io/index.html"
-            },
-            {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "enlaces",
-            "item": "https://daniel-sanchez-del-campo.github.io/enlaces.html"
+
+        /* Menú de hamburguesa en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                position: fixed;
+                top: 120px; /* Espacio debajo del título y del menú hamburguesa */
+                right: 0;
+                background-color: #333;
+                z-index: 9;
+                max-height: 300px; /* La altura máxima del menú */
+                overflow-y: auto; /* Para habilitar desplazamiento si hay muchas opciones */
             }
-        ]
+
+            .nav li {
+                display: block;
+                width: 100%;
+            }
+
+            .nav li a {
+                padding: 10px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav.active {
+                display: flex;
+            }
         }
-    </script>
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">El Rincón del Mustang</div>
     </header>
+
+    <!-- Botón hamburguesa debajo del título y sigue el scroll -->
+    <div class="menu-toggle" id="menu-toggle">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Menú de navegación -->
     <nav>
         <ul class="nav">
             <li><a href="index.html">Inicio</a></li>
@@ -148,6 +192,7 @@
             <li><a href="capilla.html">La Gran Capilla</a></li>
         </ul>
     </nav>
+
     <main>
         <h1>Páginas de Interés</h1>
         <div class="link-container">
@@ -188,5 +233,14 @@
         <p>&copy; 2024 El Rincón del Mustang. Todos los derechos reservados.</p>
         <p><a href="#menu" style="color: white; text-decoration: underline;">Volver arriba</a></p>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const nav = document.querySelector('nav ul');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
