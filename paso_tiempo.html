@@ -35,11 +35,12 @@
             background-color: #333;
             width: 100%;
         }
+
         #tiempo {
             background-color: #cac9c9;
-            padding: 10px; 
+            padding: 10px;
             display: inline-block;
-            border-radius: 8px; 
+            border-radius: 8px;
         }
 
         #tiempo ul {
@@ -49,8 +50,8 @@
         }
 
         #tiempo li {
-            display: inline-block; 
-            margin-right: 15px; 
+            display: inline-block;
+            margin-right: 15px;
         }
 
         #tiempo li a {
@@ -66,11 +67,6 @@
 
         #tiempo li a:hover {
             background-color: #444;
-        }
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
         }
 
         .nav > li {
@@ -104,6 +100,71 @@
             display: block;
         }
 
+        /* Hamburguesa (solo en dispositivos móviles) */
+        .hamburger {
+            display: none; /* Ocultar por defecto */
+            flex-direction: column;
+            cursor: pointer;
+            position: fixed;
+            top: 70px; /* Justo debajo del header */
+            right: 20px;
+            z-index: 1001;
+            background-color: transparent;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #555; /* Gris oscuro */
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex; /* Mostrar hamburguesa en pantallas pequeñas */
+            }
+
+            .menu {
+                display: none;
+                width: 100%;
+                background-color: #333;
+                flex-direction: column;
+                text-align: center;
+                position: absolute;
+                top: 60px;
+                right: 0;
+            }
+
+            .menu.active {
+                display: block;
+            }
+
+            .nav > li {
+                display: block;
+                text-align: center;
+            }
+        }
+
         main {
             padding: 20px;
             max-width: 1200px;
@@ -118,44 +179,6 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-        }
-
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s;
-        }
-
-        .carousel {
-            width: 50%;
-            height: 300px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carousel img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            opacity: 0;
-            transition: opacity 1s ease, left 1s ease;
-        }
-
-        .carousel img.active {
-            left: 0;
-            opacity: 1;
-        }
-
-        .text {
-            max-width: 45%;
         }
 
         footer {
@@ -174,57 +197,36 @@
         .text ul li {
             margin-bottom: 5px;
         }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .carousel-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .carousel, .text {
-                width: 100%;
-            }
-        }
-</style>
-<script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inicio",
-        "item": "https://daniel-sanchez-del-campo.github.io/index.html"
-        },
-        {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Paso_tiempo",
-        "item": "https://daniel-sanchez-del-campo.github.io/paso_tiempo.html"
-        }
-    ]
-    }
-</script>
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">El Rincón del Mustang</div>
     </header>
+
+    <!-- Menú de Navegación -->
     <nav id="menu">
-        <ul class="nav">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="paso_tiempo.html">El paso del tiempo</a></li>
-            <li><a href="https://www.ford.es/turismos/nuevo-mustang#mustang">Página Ford</a></li>
-            <li><a href="enlaces.html">Páginas de interes</a></li>
-            <li><a href="capilla.html">La Gran Capilla</a></li>
-        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="menu">
+            <ul class="nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="paso_tiempo.html">El paso del tiempo</a></li>
+                <li><a href="https://www.ford.es/turismos/nuevo-mustang#mustang">Página Ford</a></li>
+                <li><a href="enlaces.html">Páginas de interes</a></li>
+                <li><a href="capilla.html">La Gran Capilla</a></li>
+            </ul>
+        </div>
     </nav>
+
     <main>
         <section>
-            <h1>Evolucion del Mustang a lo largo de los años</h1>
-            <p>Vamos a ver como a ido evolucionando los Mustang a lo largo de los años, principalmente vamos a ver como han ido cambiado los diseños.</p>
+            <h1>Evolución del Mustang a lo largo de los años</h1>
+            <p>Vamos a ver cómo ha ido evolucionando los Mustang a lo largo de los años, principalmente vamos a ver cómo han ido cambiando los diseños.</p>
         </section>
 
         <nav id="tiempo">
@@ -237,42 +239,50 @@
                 <li><a href="">2024</a></li>
             </ul>
         </nav>
-        
-        
+
+        <!-- Descripción de los Modelos -->
         <div class="text">
             <h2>1964: El Nacimiento del Mustang</h2>
             <p>El <b>Ford Mustang</b> fue lanzado oficialmente el <b>17 de abril de 1964</b> durante la Feria Mundial de Nueva York. El modelo original se destacó por su diseño deportivo, accesibilidad y una gama de motorizaciones potentes, convirtiéndose en un éxito instantáneo con más de <b>22,000</b> unidades vendidas en su primer día.</p>
         </div>
+
         <div class="text">
             <h2>1967: Rediseño y Potencia</h2>
             <p>En <b>1967</b>, el <b>Mustang</b> experimentó su primer gran rediseño, con un tamaño <b>más grande</b> y más opciones de motorización, incluyendo el potente motor <b>V8</b> de <b>390 pulgadas cúbicas</b>. Esta versión consolidó al Mustang como uno de los muscle cars más deseados.</p>
         </div>
+
         <div class="text">
             <h2>1971-1973: La Era de la Segunda Generación</h2>
             <p>A principios de los <b>1970s</b>, el Mustang se volvió <b>más grande</b> y <b>más pesado</b>, en respuesta a las regulaciones de seguridad y las preferencias del mercado. Sin embargo, el modelo de <b>1971-1973</b> mostró una disminución en la popularidad debido al aumento en los precios del combustible y la crisis del petróleo.</p>
         </div>
+
         <div class="text">
             <h2>1974: El Mustang II</h2>
             <p>En <b>1974</b>, Ford introdujo el <b>Mustang II</b>. Este modelo fue una adaptación a la crisis del petróleo, ya que ofrecía un diseño <b>más pequeño</b> y <b>eficiente</b> en cuanto a consumo de combustible. Aunque este cambio fue controversial, permitió que el <b>Mustang</b> sobreviviera en un mercado que demandaba vehículos más económicos.</p>
         </div>
+
         <div class="text">
             <h2>1979-1993: La Tercera Generación y la Resurrección del Mustang</h2>
             <p>Con la llegada de la <b>tercera generación</b> en <b>1979</b>, el <b>Mustang</b> pasó a utilizar la plataforma Fox, <b>más versátil</b> y con un enfoque en la eficiencia y el rendimiento. Durante esta época, el modelo fue rediseñado varias veces, pero fue en 1987 cuando el <b>Mustang</b> recuperó una imagen más deportiva, volviendo a sus raíces.</p>
             <p>A principios de los 90s, el <b>Mustang</b> logró un renacimiento bajo la dirección de Ford, con un diseño más moderno y con motorizaciones más potentes, especialmente el <b>Mustang GT</b>.</p>
         </div>
+
         <div class="text">
             <h2>1994-2004: La Cuarta Generación y la Modernización</h2>
             <p>En <b>1994</b>, el <b>Mustang</b> fue completamente rediseñado con un estilo más agresivo y moderno. Este rediseño tuvo un gran impacto y atrajo a una nueva generación de entusiastas. Durante esta década, el modelo se convirtió en un clásico más accesible, con motorizaciones V6 y V8, y se convirtió en un referente de los muscle cars en los EE. UU.</p>
         </div>
+
         <div class="text">
             <h2>2005-2014: La Quinta Generación y la Conexión con el Pasado</h2>
             <p>En 2005, el <b>Mustang</b> adoptó un diseño retro que evocaba el espíritu de los primeros modelos, lo que lo convirtió en una referencia de la cultura pop y un favorito en las películas y el cine. Durante este período, el modelo continuó evolucionando con más tecnología y un rendimiento mejorado, incluyendo motores más eficientes y versiones más potentes, como el <b>Shelby GT500</b>.</p>
         </div>
+
         <div class="text">
             <h2>2015-2023: La Sexta Generación y la Globalización</h2>
             <p>En 2015, el <b>Mustang</b> sufrió una nueva transformación con la incorporación de la plataforma global. Esta versión fue <b>más moderna</b> y tecnológica, incluyendo opciones como el motor EcoBoost de <b>2.3 litros</b>, y se hizo disponible en mercados internacionales. A partir de 2015, el <b>Mustang</b> dejó de ser solo un ícono estadounidense, convirtiéndose en un modelo global disponible en más de 140 países.</p>
             <p>En 2020, Ford lanzó una versión más potente y refinada del <b>Mustang</b>, con motores <b>V8</b> de hasta <b>760 caballos</b> de fuerza en el modelo <b>Shelby GT500</b>.</p>
         </div>
+
         <div class="text">
             <h2>2024: La Séptima Generación y el Futuro</h2>
             <p>En 2024, Ford presentó la séptima generación del <b>Mustang</b>, una nueva versión que mantiene las características clásicas del modelo, pero con un enfoque <b>más moderno</b>, incluyendo un diseño actualizado y una mayor integración de tecnologías digitales. Este modelo se ofrece con una gama de motores potentes, desde un <b>V8</b> hasta un motor <b>EcoBoost</b> de <b>cuatro cilindros</b>, lo que asegura que el <b>Mustang</b> siga siendo un referente en el mundo de los deportivos accesibles.</p>
@@ -300,7 +310,11 @@
                 }, 6000);
             });
         });
-    </script>
 
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
