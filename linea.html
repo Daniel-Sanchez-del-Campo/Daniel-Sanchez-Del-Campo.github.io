@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="Mustang, Ford, Ford Mustang, Coches, Shelby, GT, Fastback, American Muscle, Dark Horse">
+    <meta name="description"
+        content="Página para los amantes de los Mustang. Conoce la historia, modelos y características de estos icónicos coches.">
+    <link rel="icon" href="shelb.png" type="image/png">
+    <link rel="canonical" href="https://daniel-sanchez-del-campo.github.io/">
+    <title>El Rincón del MUSTANG</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        #menu {
+            background-color: #333;
+            width: 100%;
+        }
+
+        #tiempo {
+            background-color: #cac9c9;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+        #tiempo ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #tiempo li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        #tiempo li a {
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        #tiempo li a:hover {
+            background-color: #444;
+        }
+
+        .nav>li {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav li a {
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav li a:hover {
+            background-color: #444;
+        }
+
+        .nav li ul {
+            display: none;
+            position: absolute;
+            min-width: 140px;
+            z-index: 1000;
+            background-color: #333;
+        }
+
+        .nav li:hover>ul {
+            display: block;
+        }
+
+        /* Hamburguesa (solo en dispositivos móviles) */
+        .hamburger {
+            display: none;
+            /* Ocultar por defecto */
+            flex-direction: column;
+            cursor: pointer;
+            position: fixed;
+            top: 70px;
+            /* Justo debajo del header */
+            right: 20px;
+            z-index: 1001;
+            background-color: transparent;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #555;
+            /* Gris oscuro */
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+                /* Mostrar hamburguesa en pantallas pequeñas */
+            }
+
+            .menu {
+                display: none;
+                width: 100%;
+                background-color: #333;
+                flex-direction: column;
+                text-align: center;
+                position: absolute;
+                top: 60px;
+                right: 0;
+            }
+
+            .menu.active {
+                display: block;
+            }
+
+            .nav>li {
+                display: block;
+                text-align: center;
+            }
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1,
+        h2 {
+            color: #1a1a1a;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+            position: relative;
+        }
+
+        .text ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .text ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Estilos para el slider */
+        .slider-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .slider {
+            width: 80%;
+            margin: 0 auto;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 12px;
+            background: #333;
+            border-radius: 5px;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+
+        .slider::-webkit-slider-runnable-track {
+            background: #666;
+            border-radius: 5px;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            /* Ajusta el tamaño de la imagen */
+            height: 30px;
+            /* Ajusta el tamaño de la imagen */
+            background: url('caballo.png') no-repeat center center;
+            /* Aplica la imagen */
+            background-size: contain;
+            /* Asegura que la imagen se ajuste bien */
+            border-radius: 50%;
+            /* Para darle un borde redondeado */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+
+        .slider::-webkit-slider-thumb:hover {
+            background-color: #444;
+        }
+
+        .slider-output {
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Ocultar la información de los años no seleccionados */
+        #mustang1964,
+        #mustang1967,
+        #mustang2012,
+        #mustang2017,
+        #mustang2024 {
+            display: none;
+        }
+
+        .selected-car-button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #000000;
+            border: 2px solid #444444;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .selected-car-button:hover {
+            background-color: #444444;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .selected-car-button:active {
+            background-color: #1a1a1a;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">El Rincón del Mustang</div>
+    </header>
+
+    <!-- Menú de Navegación -->
+    <nav id="menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="menu">
+            <ul class="nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="paso_tiempo.html">El paso del tiempo</a></li>
+                <li><a href="https://www.ford.es/turismos/nuevo-mustang#mustang">Página Ford</a></li>
+                <li><a href="enlaces.html">Páginas de interes</a></li>
+                <li><a href="capilla.html">La Gran Capilla</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section>
+            <h1>Evolución del Mustang a lo largo de los años</h1>
+            <p>Vamos a ver cómo ha ido evolucionando los Mustang a lo largo de los años, principalmente vamos a ver cómo
+                han ido cambiando los diseños.</p>
+        </section>
+
+        <!-- Barra deslizante para seleccionar el año -->
+        <div class="slider-container">
+            <input type="range" min="0" max="4" value="0" class="slider" id="yearSlider">
+            <div class="slider-output" id="yearOutput">1964</div>
+        </div>
+
+        <!-- Descripción de los Modelos -->
+        <div class="text" id="modelText">
+            <!-- Información sobre el Mustang 1964 -->
+            <div id="mustang1964" style="display: block;">
+                <h3>Año 1964</h3>
+                <p><strong>Detalles clave del Mustang en 1964:</strong></p>
+
+                <p><strong>1. Producción inicial:</strong><br>
+                    Aunque fue presentado como modelo de 1965, los primeros Mustangs producidos desde marzo de 1964 se
+                    conocen como Mustang 1964 ½.<br>
+                    Estas primeras unidades incluían características únicas que los distinguen de los modelos
+                    posteriores de 1965.</p>
+
+                <p><strong>2. Diseño:</strong><br>
+                    El Mustang tenía una silueta elegante, con una parrilla frontal icónica que presentaba el emblema
+                    del caballo galopante.<br>
+                    Estaba disponible en carrocerías cupé y convertible, más tarde se lanzó la versión fastback.</p>
+
+                <p><strong>3. Opciones mecánicas:</strong><br>
+                    Motores disponibles:<br>
+                    - 6 cilindros en línea de 2.8 litros (170 pulgadas cúbicas) con 101 caballos de fuerza.<br>
+                    - V8 de 4.3 litros (260 pulgadas cúbicas) con 164 caballos de fuerza.<br>
+                    - V8 de 4.7 litros (289 pulgadas cúbicas), más potente, con diversas configuraciones.<br>
+                    Se ofrecían transmisiones manuales y automáticas.</p>
+
+                <p><strong>4. Precio:</strong><br>
+                    Su precio base era de 2,368 dólares, lo que lo hacía accesible para un público joven y diverso.</p>
+
+                <p><strong>5. Éxito comercial:</strong><br>
+                    - En su primer día, Ford vendió más de 22,000 unidades.<br>
+                    - Para finales de 1964, había alcanzado más de 121,000 unidades vendidas.<br>
+                    - Su lanzamiento fue tan exitoso que rápidamente superó el millón de unidades en menos de dos años.
+                </p>
+
+                <p><strong>6. Publicidad y cultura:</strong><br>
+                    Ford utilizó una innovadora campaña de marketing, incluyendo comerciales en televisión y
+                    exhibiciones en los concesionarios.<br>
+                    El Mustang rápidamente se convirtió en un ícono de la cultura juvenil estadounidense, representando
+                    libertad y estilo.</p>
+
+                <p><strong>7. Legado:</strong><br>
+                    El Mustang 1964 ½ sentó las bases para una línea de automóviles que sigue vigente hasta hoy,
+                    evolucionando constantemente pero manteniendo su esencia deportiva.</p>
+
+                <a href="#" class="selected-car-button">Coche seleccionado de este año</a>
+            </div>
+
+            <!-- Información sobre el Mustang 1967 -->
+            <div id="mustang1967">
+                <h2>Detalles clave del Mustang en 1967:</h2>
+                <h3>Año 1967</h3>
+                <p><strong>1. Diseño y Estilo:</strong><br>
+                    En 1967, el Mustang experimentó una gran actualización en su diseño, con una carrocería más grande y
+                    robusta, una longitud mayor y un capó más largo.<br>
+                    Se añadió una parrilla delantera más agresiva, con una reja cromada más prominente y faros más
+                    grandes que le dieron un aspecto más musculoso.<br>
+                    Las líneas laterales fueron más pronunciadas, y el coche tenía un estilo más deportivo y agresivo
+                    comparado con los modelos anteriores.<br>
+                    <strong>Nuevo tamaño:</strong> El Mustang de 1967 fue más largo (aproximadamente 2 pulgadas más
+                    largo) y más ancho (casi 3 pulgadas más ancho), lo que resultó en más espacio interior y un estilo
+                    más imponente.
+                </p>
+
+                <p><strong>2. Nuevas opciones de motorización:</strong><br>
+                    El Mustang 1967 ofreció una gran variedad de opciones de motorización, lo que permitió a los
+                    compradores elegir entre modelos más orientados hacia la eficiencia o hacia el alto rendimiento.<br>
+                    - Motor base de 6 cilindros: 4.7 litros (200 pulgadas cúbicas) con 120 caballos de fuerza.<br>
+                    - V8 de 4.7 litros (289 pulgadas cúbicas) con hasta 225 caballos de fuerza.<br>
+                    - V8 de 5.0 litros (302 pulgadas cúbicas) con 230 caballos de fuerza.<br>
+                    - V8 de 6.4 litros (390 pulgadas cúbicas) con 320 caballos de fuerza.<br>
+                    - V8 de 7.0 litros (428 pulgadas cúbicas) con 335 caballos de fuerza (disponible en versiones más
+                    deportivas como el Shelby GT500).<br>
+                    Las versiones más potentes del Mustang 1967, como el GT500, se ofrecieron con motores de alta
+                    cilindrada para mejorar la potencia y el rendimiento en la carretera.</p>
+
+                <p><strong>3. Nuevas características y opciones:</strong><br>
+                    En 1967, el Mustang continuó su enfoque de personalización, permitiendo que los compradores
+                    eligieran diversas configuraciones.<br>
+                    - <strong>Suspensión mejorada:</strong> Se mejoraron las suspensiones tanto en el tren delantero
+                    como en el trasero para proporcionar un mejor manejo y estabilidad.<br>
+                    - <strong>Nuevas opciones interiores:</strong> Se ofrecieron más opciones de tapicería y una mejor
+                    calidad de materiales en el interior, con más detalles cromados y madera en las versiones
+                    superiores.<br>
+                    - <strong>Faros antiniebla:</strong> Eran opcionales y se introdujeron como una característica extra
+                    para el rendimiento.</p>
+
+                <p><strong>4. Versión GT y Shelby:</strong><br>
+                    - El <strong>Mustang GT</strong> se convirtió en un modelo más deportivo, con mejoras en la
+                    suspensión, frenos más grandes y detalles de estilo como las franjas a lo largo del vehículo.<br>
+                    - <strong>Shelby GT350 y GT500:</strong> Estos modelos de alto rendimiento fueron desarrollados por
+                    el famoso corredor de autos Carroll Shelby, y ofrecían características de alto rendimiento, como
+                    motores más potentes, modificaciones en la suspensión y diseño específico.<br>
+                    Shelby GT500 se convirtió en uno de los modelos más codiciados, con un motor de 428 pulgadas cúbicas
+                    y 335 caballos de fuerza, alcanzando altas velocidades y un desempeño excepcional.</p>
+
+                <p><strong>5. Éxito comercial:</strong><br>
+                    - <strong>Ventas:</strong> El Mustang 1967 continuó el éxito de los años anteriores, y la versión de
+                    1967 fue particularmente popular entre los entusiastas de los autos deportivos y los jóvenes que
+                    buscaban potencia y estilo.<br>
+                    - <strong>Auge del mercado de "pony cars":</strong> El Mustang 1967 contribuyó al crecimiento de la
+                    categoría "pony car", un segmento de autos deportivos de bajo costo que comenzó con el Mustang, pero
+                    que se expandió con competidores como el Chevrolet Camaro y el Dodge Challenger.</p>
+
+                <p><strong>6. Innovaciones en el modelo de 1967:</strong><br>
+                    - <strong>Estilo fastback:</strong> En 1967, el estilo fastback, que presentaba un techo más
+                    inclinado, se ofreció de serie en el modelo, creando una opción más deportiva y de alto
+                    rendimiento.<br>
+                    - <strong>Mejoras en seguridad:</strong> Aunque no eran obligatorias en esa época, se realizaron
+                    algunas mejoras en seguridad, como la inclusión de una barrera de combustible más segura y opciones
+                    de frenos de disco en algunos modelos.</p>
+
+                <p><strong>7. Impacto cultural:</strong><br>
+                    El Mustang 1967 también ganó popularidad gracias a su aparición en varias películas y series de
+                    televisión. Se convirtió en un símbolo de libertad y poder, y siguió consolidándose como el
+                    automóvil que representaba la juventud americana de la época.</p>
+
+                <p><strong>8. Legado:</strong><br>
+                    El modelo 1967 es recordado como un icono en la historia del Mustang, representando el momento en
+                    que el coche pasó de ser un automóvil accesible a uno más sofisticado y orientado hacia el
+                    rendimiento.<br>
+                    Con el Shelby GT500, el Mustang 1967 también marcó una nueva era para los coches de alto rendimiento
+                    en América.</p>
+
+                <a href="#" class="selected-car-button">Coche seleccionado de este año</a>
+            </div>
+
+            <!-- Información sobre el Mustang 2012 -->
+            <div id="mustang2012">
+                <h3>Año 2012</h3>
+
+                <p><strong>1. Actualización de diseño y estilo:</strong></p>
+                <p><strong>Exterior:</strong> El Mustang 2012 mantuvo la esencia retro de sus modelos anteriores, pero
+                    con detalles refinados y modernos. El capó con ventilación, las nuevas luces traseras de estilo más
+                    nítido y el diseño agresivo de la parrilla frontal se mantuvieron, con líneas más marcadas y un
+                    aspecto más musculoso y deportivo.</p>
+                <p><strong>Opciones de carrocería:</strong> Se ofrecieron dos variantes:</p>
+                <ul>
+                    <li>Mustang Coupé</li>
+                    <li>Mustang Convertible</li>
+                </ul>
+                <p>Se incluyeron nuevos colores de carrocería, como el "Race Red" y el "Grabber Blue", que añadieron
+                    frescura a la gama de opciones de personalización.</p>
+
+                <p><strong>2. Motorización y rendimiento:</strong></p>
+                <p><strong>Motor base (V6):</strong> En 2012, el motor de V6 de 3.7 litros fue uno de los más
+                    destacados, ofreciendo 305 caballos de fuerza y 280 lb-ft de torque. Este motor representó una
+                    notable mejora en el rendimiento y eficiencia en comparación con generaciones anteriores de 6
+                    cilindros. Este motor se combinaba con una transmisión manual de 5 marchas o automática de 6
+                    marchas.</p>
+
+                <p><strong>Motor V8 (GT):</strong> El V8 de 5.0 litros en el Mustang GT seguía siendo una opción de alto
+                    rendimiento. Este motor producía 412 caballos de fuerza y 390 lb-ft de torque, proporcionando una
+                    experiencia de conducción potente y emocionante.</p>
+
+                <p><strong>Mustang Boss 302:</strong> El modelo Boss 302 fue uno de los más destacados de 2012. Este
+                    modelo especial fue una versión de alto rendimiento del Mustang, con un motor V8 de 5.0 litros que
+                    generaba 444 caballos de fuerza y 380 lb-ft de torque. El Boss 302 estaba diseñado para aquellos que
+                    buscaban un Mustang que combinara la esencia de los muscle cars de los años 60 con una ingeniería
+                    moderna, presentando una suspensión optimizada para el circuito y un escape de alto rendimiento.</p>
+
+                <p><strong>Shelby GT500:</strong> El Shelby GT500 de 2012 fue una de las versiones más potentes del
+                    Mustang. Su motor V8 de 5.4 litros sobrealimentado entregaba 550 caballos de fuerza y 510 lb-ft de
+                    torque, lo que lo convirtió en un verdadero monstruo en términos de potencia y velocidad. Este
+                    modelo estaba diseñado para los conductores que buscaban el máximo rendimiento tanto en la pista
+                    como en la calle, combinando tecnología avanzada y una conducción espectacular.</p>
+
+                <p><strong>3. Tecnología y características interiores:</strong></p>
+                <p><strong>Sistemas de infoentretenimiento:</strong> El Mustang 2012 estuvo disponible con la opción del
+                    sistema Ford SYNC, que permitía a los conductores conectarse con sus dispositivos móviles para
+                    recibir llamadas, música y mensajes de texto a través de comandos de voz.</p>
+                <p><strong>Interiores más refinados:</strong> Los materiales del interior del Mustang 2012 fueron más
+                    modernos y de mejor calidad, con opciones como asientos deportivos, detalles en cuero y acabados en
+                    aluminio. También se mejoraron las opciones de tecnología de confort, como el control de clima
+                    automático.</p>
+                <p><strong>Pantalla táctil y navegación:</strong> Se mejoraron las opciones de navegación, con una
+                    pantalla táctil de mayor tamaño que permitía una interfaz más intuitiva para los sistemas de
+                    navegación y entretenimiento.</p>
+
+                <p><strong>4. Suspensión y manejo:</strong></p>
+                <p>El Mustang 2012 continuó con su enfoque de manejo deportivo, con una suspensión que balanceaba
+                    comodidad y rendimiento, brindando una experiencia de conducción emocionante tanto en la ciudad como
+                    en carretera. El modelo Boss 302 y el Shelby GT500 contaban con una suspensión más enfocada al alto
+                    rendimiento, mejorada para circuitos de carreras y conducción más agresiva.</p>
+
+                <p><strong>5. Eficiencia de combustible:</strong></p>
+                <p><strong>V6:</strong> El motor V6 de 3.7 litros tuvo una notable mejora en la eficiencia de
+                    combustible, logrando aproximadamente 19-20 mpg en ciudad y 29-31 mpg en carretera, lo que lo
+                    convertía en una opción eficiente en comparación con otros muscle cars.</p>
+                <p><strong>V8:</strong> Aunque los motores V8 eran mucho más potentes, el Mustang 2012 también mejoró en
+                    términos de eficiencia para su clase. El modelo GT con el V8 de 5.0 litros registraba 15-16 mpg en
+                    ciudad y 24-26 mpg en carretera.</p>
+
+                <p><strong>6. Seguridad:</strong></p>
+                <p>El Mustang 2012 incluía características de seguridad estándar como frenos de disco antibloqueo (ABS),
+                    control de tracción, control de estabilidad, y airbags frontales y laterales. También ofrecía una
+                    estructura de carrocería más robusta para mejorar la protección en caso de accidentes.</p>
+
+                <p><strong>7. Rendimiento en pista:</strong></p>
+                <p>El Mustang Boss 302 de 2012 se destacó por sus credenciales en pista, siendo una versión del modelo
+                    especialmente diseñada para los entusiastas de la conducción en circuito. El Shelby GT500 2012 se
+                    destacó por su capacidad para lograr tiempos de aceleración impresionantes y su manejo
+                    extremadamente preciso, especialmente con la opción de transmisión manual.</p>
+
+                <p><strong>8. Precios y versiones:</strong></p>
+                <p>El Mustang V6 de 2012 tenía un precio base aproximado de $22,000 USD. El Mustang GT de 2012 comenzaba
+                    alrededor de $30,000 USD. Las versiones más deportivas como el Boss 302 y Shelby GT500 tenían
+                    precios más altos, de alrededor de $40,000 USD y $50,000 USD, respectivamente.</p>
+
+                <p><strong>9. Impacto y legado:</strong></p>
+                <p>El Mustang 2012 continuó con el éxito de su anterior generación, mejorando tanto en rendimiento como
+                    en características tecnológicas. En 2012, Ford también celebró el 50 aniversario de la marca
+                    Mustang, lo que reflejaba su importancia cultural y automovilística en la historia de los muscle
+                    cars. El modelo de 2012 consolidó al Mustang como uno de los autos más populares y deseados en
+                    América y en muchos otros mercados internacionales.</p>
+
+                <a href="#" class="selected-car-button">Coche seleccionado de este año</a>
+            </div>
+
+            <!-- Información sobre el Mustang 2017 -->
+            <div id="mustang2017">
+                <h3>Año 2017</h3>
+
+                <p><strong>1. Diseño exterior y estilo:</strong></p>
+                <p><strong>Estilo actualizado:</strong> Aunque mantenía la esencia del Mustang clásico, el modelo 2017
+                    recibió un rediseño en la parrilla frontal y en las luces traseras, que le otorgaron un aspecto más
+                    moderno y agresivo.</p>
+                <p><strong>Faros y luces traseras:</strong> Las luces delanteras fueron rediseñadas con una forma más
+                    angular y moderna, mientras que las luces traseras presentaban una nueva forma de triple barra, un
+                    detalle que ofrecía un toque más futurista.</p>
+                <p><strong>Opciones de carrocería:</strong> Se mantuvieron las variantes coupé y convertible,
+                    permitiendo que los compradores eligieran entre una opción deportiva y una más versátil.</p>
+
+                <p><strong>2. Motorización y rendimiento:</strong></p>
+                <p><strong>Motor base (EcoBoost de 2.3 litros):</strong> El motor de 4 cilindros EcoBoost de 2.3 litros
+                    continuó siendo una opción popular en 2017. Este motor ofrecía 310 caballos de fuerza y 320 lb-ft de
+                    torque, combinando eficiencia de combustible con un rendimiento respetable. En términos de
+                    eficiencia, el EcoBoost alcanzaba 21-22 mpg en ciudad y 30-31 mpg en carretera, lo que lo hacía una
+                    opción más económica en comparación con los V8.</p>
+
+                <p><strong>Motor V8 (GT):</strong> El motor V8 de 5.0 litros en el Mustang GT 2017 ofreció 435 caballos
+                    de fuerza y 400 lb-ft de torque. Este motor continuaba ofreciendo la potencia y el rendimiento que
+                    los conductores esperaban de un muscle car clásico. El GT seguía siendo muy apreciado por los
+                    entusiastas del rendimiento, capaz de lograr aceleraciones rápidas y de brindar una experiencia de
+                    conducción emocionante.</p>
+
+                <p><strong>Mejoras en el rendimiento:</strong> En 2017, la transmisión automática de 6 marchas fue
+                    reemplazada por una automática de 10 marchas en algunos modelos, proporcionando cambios más suaves y
+                    una mejor aceleración. Se incluyó una nueva suspensión trasera independiente en las versiones
+                    EcoBoost y GT, lo que mejoró significativamente el manejo y la estabilidad, ofreciendo una
+                    conducción más precisa y suave.</p>
+
+                <p><strong>Shelby GT350:</strong> El Shelby GT350 continuó como la versión más potente y de alto
+                    rendimiento, con un motor V8 de 5.2 litros que entregaba 526 caballos de fuerza y 429 lb-ft de
+                    torque. Este motor era conocido por su naturaleza de altas revoluciones, lo que lo hacía perfecto
+                    para conductores que buscaban una experiencia de manejo más agresiva y de pista.</p>
+
+                <p><strong>3. Tecnología y características interiores:</strong></p>
+                <p><strong>Pantalla digital de 12 pulgadas:</strong> El Mustang 2017 fue uno de los primeros modelos en
+                    ofrecer una pantalla digital configurable de 12 pulgadas en el cuadro de instrumentos. Esta pantalla
+                    permitía al conductor personalizar la información que se mostraba, como las revoluciones del motor,
+                    la velocidad, los modos de conducción, entre otros.</p>
+                <p><strong>Sistema de infoentretenimiento SYNC 3:</strong> El Ford SYNC 3 mejoró la conectividad, con
+                    una interfaz más rápida, intuitiva y compatible con Apple CarPlay y Android Auto, permitiendo la
+                    integración de smartphones y acceso a aplicaciones desde la pantalla táctil del vehículo.</p>
+                <p><strong>Sistema de sonido Bang & Olufsen:</strong> Ford también ofreció un sistema de sonido premium
+                    de Bang & Olufsen, mejorando la calidad de audio para una experiencia de entretenimiento superior.
+                </p>
+                <p><strong>Asistencia al conductor:</strong> Se incorporaron nuevas características de seguridad y
+                    asistencia, como cámara de reversa, sensores de estacionamiento y sistema de alerta de colisión
+                    frontal, para aumentar la seguridad y la comodidad.</p>
+
+                <p><strong>4. Mejoras en manejo y suspensión:</strong></p>
+                <p>El Mustang 2017 continuó con el enfoque de mejorar la maneabilidad y el desempeño en curvas y
+                    aceleraciones. La incorporación de una suspensión trasera independiente permitió una mejor
+                    distribución del peso y mayor estabilidad. También se mantuvo la opción de modos de conducción
+                    (Normal, Sport, Track y Snow/Wet) que ajustaban los parámetros del vehículo como la respuesta del
+                    acelerador, la dirección y la suspensión, permitiendo a los conductores personalizar la experiencia
+                    de manejo según sus preferencias.</p>
+
+                <p><strong>5. Nuevas opciones de personalización:</strong></p>
+                <p><strong>Colores y paquetes de diseño:</strong> Ford ofreció una amplia gama de colores y opciones de
+                    personalización para el Mustang 2017, como el "Magnetic Metallic", "Kona Blue" y "Orange Fury",
+                    además de paquetes como el Performance Package para el GT y el EcoBoost, que mejoraban la
+                    suspensión, los frenos y la estética.</p>
+                <p><strong>Frenos de alto rendimiento:</strong> Los modelos de alto rendimiento como el Shelby GT350 y
+                    el GT Performance Package incluían frenos Brembo, mejorando la capacidad de detención en condiciones
+                    exigentes.</p>
+
+                <p><strong>6. Eficiencia de combustible:</strong></p>
+                <p><strong>Motor EcoBoost (4 cilindros):</strong> El motor EcoBoost de 2.3 litros seguía siendo
+                    eficiente en términos de combustible, con un rendimiento de 21-22 mpg en ciudad y 30-31 mpg en
+                    carretera.</p>
+                <p><strong>Motor V8 (GT):</strong> El Mustang GT 2017, aunque más potente, también mantenía una
+                    eficiencia decente para su categoría, con cifras de 15-16 mpg en ciudad y 24-25 mpg en carretera.
+                </p>
+
+                <p><strong>7. Seguridad:</strong></p>
+                <p>El Mustang 2017 recibió actualizaciones importantes en cuanto a seguridad, incluyendo:</p>
+                <ul>
+                    <li>Control de tracción y estabilidad</li>
+                    <li>Frenos antibloqueo (ABS)</li>
+                    <li>Airbags delanteros, laterales y de cortina</li>
+                    <li>Cámara de reversa y sensores de estacionamiento</li>
+                </ul>
+                <p>También se ofrecieron sistemas avanzados como el control de crucero adaptativo y sistema de alerta de
+                    cambio de carril, que aumentaron el nivel de seguridad y comodidad en los viajes largos.</p>
+
+                <p><strong>8. Rendimiento en pista:</strong></p>
+                <p>El Mustang Shelby GT350 2017 continuó destacándose como uno de los vehículos más rápidos y eficientes
+                    en circuito, gracias a su motor de 5.2 litros V8 y sus mejoras de suspensión y frenos,
+                    convirtiéndolo en un competidor serio en el mundo de los muscle cars de alto rendimiento. El GT y el
+                    EcoBoost también mostraron mejoras sustanciales en tiempos de aceleración y manejo, con la nueva
+                    suspensión trasera independiente, lo que resultó en un vehículo más equilibrado y más fácil de
+                    controlar a altas velocidades.</p>
+
+                <p><strong>9. Precios y versiones:</strong></p>
+                <p><strong>Mustang EcoBoost:</strong> El precio base del modelo EcoBoost de 2017 comenzaba en torno a
+                    los $25,000 USD.</p>
+                <p><strong>Mustang GT:</strong> El precio base del Mustang GT era de aproximadamente $32,000 USD.</p>
+                <p><strong>Shelby GT350:</strong> El Shelby GT350 2017 era el modelo de alto rendimiento, con un precio
+                    base cercano a los $55,000 USD.</p>
+
+                <p><strong>10. Impacto y legado:</strong></p>
+                <p>El Mustang 2017 continuó el legado del modelo, siendo un automóvil altamente apreciado por los
+                    entusiastas de los vehículos deportivos en todo el mundo. La incorporación de nuevas tecnologías,
+                    mejoras en el manejo y la amplia gama de opciones de motorización ayudaron a mantenerlo competitivo
+                    frente a otros muscle cars y autos deportivos en el mercado.</p>
+
+                <a href="#" class="selected-car-button">Coche seleccionado de este año</a>
+            </div>
+
+            <!-- Información sobre el Mustang 2024 -->
+            <div id="mustang2024">
+                <h3>Año 2024</h3>
+
+                <p><strong>1. Motorización y Rendimiento:</strong></p>
+                <p><strong>Motores Disponibles:</strong></p>
+                <ul>
+                    <li><strong>V8 de 5.0 litros:</strong> Ofrece entre 446 y 453 caballos de fuerza, permitiendo una
+                        aceleración de 0 a 100 km/h en menos de 4.5 segundos.</li>
+                    <li><strong>EcoBoost de 2.3 litros:</strong> Motor turboalimentado de 4 cilindros que combina
+                        eficiencia y rendimiento.</li>
+                </ul>
+                <p><strong>Transmisiones:</strong></p>
+                <ul>
+                    <li>Manual de 6 velocidades</li>
+                    <li>Automática de 10 velocidades</li>
+                </ul>
+
+                <p><strong>2. Modelos y Precios:</strong></p>
+                <ul>
+                    <li><strong>Mustang EcoBoost Fastback:</strong> Desde $31,920.</li>
+                    <li><strong>Mustang GT Fastback:</strong> Desde $42,860.</li>
+                    <li><strong>Mustang Dark Horse:</strong> Desde $60,635.</li>
+                </ul>
+
+                <p><strong>3. Diseño Exterior:</strong></p>
+                <p><strong>Estilo Moderno:</strong> Líneas más aerodinámicas y una parrilla frontal renovada que le
+                    otorgan una presencia más imponente en la carretera.</p>
+                <p><strong>Colores y Personalización:</strong> Gran variedad de colores y opciones de personalización,
+                    permitiendo a los propietarios reflejar su estilo individual.</p>
+
+                <p><strong>4. Interior y Tecnología:</strong></p>
+                <p><strong>Pantalla Digital de 12 Pulgadas:</strong> Instrumentos totalmente digitales que permiten
+                    personalizar la información mostrada.</p>
+                <p><strong>Sistema de Infoentretenimiento SYNC® 4:</strong> Pantalla táctil de 13.2 pulgadas compatible
+                    con Apple CarPlay y Android Auto.</p>
+                <p><strong>Asientos y Confort:</strong> Opciones de asientos de cuero, calefacción y ventilación para
+                    mejorar la experiencia de conducción.</p>
+
+                <p><strong>5. Características de Desempeño:</strong></p>
+                <p><strong>Suspensión Mejorada:</strong> Sistema de amortiguación MagneRide® Gen III para una conducción
+                    más suave y controlada.</p>
+                <p><strong>Escape Activo:</strong> Sistema de escape con válvula activa que ajusta el sonido del motor
+                    según las preferencias del conductor.</p>
+
+                <p><strong>6. Seguridad y Asistencia al Conductor:</strong></p>
+                <p><strong>Asistencia de Estacionamiento:</strong> Sensores y cámara de reversa para facilitar maniobras
+                    en espacios reducidos.</p>
+                <p><strong>Control de Crucero Adaptativo:</strong> Mantiene una distancia segura con el vehículo
+                    delantero y ajusta la velocidad automáticamente.</p>
+
+                <p><strong>7. Disponibilidad en Europa:</strong></p>
+                <p>El Mustang 2024 se lanzó en Europa en febrero de 2024, con opciones de configuración y pedidos
+                    disponibles a través de concesionarios autorizados.</p>
+
+                <p><strong>8. Reconocimientos:</strong></p>
+                <p>El Mustang GTD 2024 ha establecido un nuevo récord como el automóvil estadounidense de producción más
+                    rápido en el circuito de Nürburgring Nordschleife, completando una vuelta en 6 minutos y 57.685
+                    segundos.</p>
+
+                <a href="#" class="selected-car-button">Coche seleccionado de este año</a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 El Rincón del Mustang</p>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('yearSlider');
+        const yearOutput = document.getElementById('yearOutput');
+
+        const mustang1964 = document.getElementById('mustang1964');
+        const mustang1967 = document.getElementById('mustang1967');
+        const mustang2012 = document.getElementById('mustang2012');
+        const mustang2017 = document.getElementById('mustang2017');
+        const mustang2024 = document.getElementById('mustang2024');
+
+        function updateSliderOutput() {
+            yearOutput.textContent = slider.value == 0 ? "1964" : slider.value == 1 ? "1967" : slider.value == 2 ? "2012" : slider.value == 3 ? "2017" : "2024";
+
+            // Ocultar todos los bloques
+            mustang1964.style.display = 'none';
+            mustang1967.style.display = 'none';
+            mustang2012.style.display = 'none';
+            mustang2017.style.display = 'none';
+            mustang2024.style.display = 'none';
+
+            // Mostrar el bloque correspondiente al valor del slider
+            if (slider.value == 0) {
+                mustang1964.style.display = 'block';
+            } else if (slider.value == 1) {
+                mustang1967.style.display = 'block';
+            } else if (slider.value == 2) {
+                mustang2012.style.display = 'block';
+            } else if (slider.value == 3) {
+                mustang2017.style.display = 'block';
+            } else {
+                mustang2024.style.display = 'block';
+            }
+        }
+
+        // Actualiza la información al cargar la página
+        updateSliderOutput();
+
+        // Evento para actualizar la información del slider
+        document.getElementById('yearSlider').addEventListener('input', updateSliderOutput);
+    </script>
+</body>
+
+</html>
