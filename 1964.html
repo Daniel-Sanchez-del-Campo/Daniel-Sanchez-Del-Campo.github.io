@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Mustang, Ford, Ford Mustang, Coches, Shelby, GT, Fastback, American Muscle, Dark Horse">
+  <meta name="description" content="Página para los amantes de los Mustang. Conoce la historia, modelos y características de estos icónicos coches.">
+  <link rel="icon" href="shelb.png" type="image/png">
+  <link rel="canonical" href="https://daniel-sanchez-del-campo.github.io/">
+  <title>El Rincón del MUSTANG</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .logo {
+      font-size: 2em;
+      text-align: center;
+    }
+    
+    /* Menú de navegación principal */
+    #menu {
+      background-color: #333;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      z-index: 1001;
+    }
+    
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #555;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    .menu {
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    .menu ul {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .menu li {
+      display: inline-block;
+    }
+    
+    .nav > li {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .nav li a {
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    
+    .nav li a:hover {
+      background-color: #444;
+    }
+    
+    .nav li ul {
+      display: none;
+      position: absolute;
+      min-width: 140px;
+      z-index: 1000;
+      background-color: #333;
+    }
+    
+    .nav li:hover > ul {
+      display: block;
+    }
+    
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    h1, h2 {
+      color: #1a1a1a;
+    }
+    
+    /* Contenedor introductorio (título y breve párrafo) */
+    .intro-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    /* Contenedor de dos columnas para el bloque de "1964: El Nacimiento del Mustang" y "Modelos a destacar" */
+    .dual-container {
+      display: flex;
+      flex-wrap: nowrap;       /* Forzamos que los elementos permanezcan en la misma línea */
+      align-items: flex-start;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 20px auto;
+      overflow-x: auto;        /* En caso de pantallas muy estrechas, permite scroll horizontal */
+    }
+    
+    /* Bloque izquierdo: Texto sobre el nacimiento del Mustang */
+    .dual-container .text {
+      flex: 1 1 auto;
+      min-width: 0;
+      margin-right: 20px;
+    }
+    
+    /* Bloque derecho: Modelos a destacar */
+    #tiempo {
+      background-color: #cac9c9;
+      padding: 10px;
+      border-radius: 8px;
+      width: 250px;            /* Ancho fijo */
+      flex-shrink: 0;          /* Evita que se reduzca y provoque wrapping */
+    }
+    
+    #tiempo ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #tiempo li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    #tiempo li a {
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: inline-block;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    
+    #tiempo li a:hover {
+      background-color: #444;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+    
+    .text ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    
+    .text ul li {
+      margin-bottom: 5px;
+    }
+    
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+    
+    .carousel-container:hover {
+      transform: scale(1.02);
+    }
+    
+    .carousel {
+      width: 50%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      opacity: 0;
+      transition: opacity 1s ease, left 1s ease;
+    }
+    
+    .carousel img.active {
+      left: 0;
+      opacity: 1;
+    }
+    
+    .footer-nav {
+      text-align: center;
+    }
+    
+    .footer-nav ul {
+      display: inline-block;
+      padding: 0;
+    }
+    
+    /* Opcional: Ajustes para dispositivos móviles */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      .menu {
+        display: none;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+        right: 0;
+      }
+      
+      .menu.active {
+        display: block;
+      }
+      
+      .nav > li {
+        display: block;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">El Rincón del Mustang</div>
+  </header>
+  
+  <!-- Menú de Navegación -->
+  <nav id="menu">
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="menu">
+      <ul class="nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="paso_tiempo.html">El paso del tiempo</a></li>
+        <li><a href="https://www.ford.es/turismos/nuevo-mustang#mustang">Página Ford</a></li>
+        <li><a href="enlaces.html">Páginas de interes</a></li>
+        <li><a href="capilla.html">La Gran Capilla</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <!-- Sección introductoria completa -->
+    <div class="intro-container">
+      <h1>Evolución del Mustang a lo largo de los años: 1964</h1>
+      <p>Vamos a ver cómo han evolucionado los Mustang a lo largo de los años, principalmente en cuanto a sus diseños.</p>
+    </div>
+    
+    <!-- Contenedor de dos columnas: izquierda, el texto "1964: El Nacimiento del Mustang"; derecha, "Modelos a destacar" -->
+    <div class="dual-container">
+      <div class="text">
+        <h2>1964: El Nacimiento del Mustang</h2>
+        <p>El <b>Mustang</b> fue presentado el <b>17</b> de <b>abril</b> de <b>1964</b> en la Feria Mundial de Nueva York y promocionado con una gran campaña de marketing.</p>
+        <p>Su impacto fue inmediato: <b>22,000</b> unidades vendidas el <b>primer día</b> y más de <b>120,000</b> en menos de <b>tres meses</b>. Este éxito superó las expectativas de <b>Ford</b> y consolidó al <b>Mustang</b> como el primer <b>"pony car"</b> de la historia.</p>
+      </div>
+      <nav id="tiempo">
+        <h2>Modelos a destacar:</h2>
+        <ul class="nav">
+          <li><a href="1967.html">1967</a></li>
+          <li><a href="2012.html">2012</a></li>
+          <li><a href="2017.html">2017</a></li>
+          <li><a href="2024.html">2024</a></li>
+        </ul>
+        <h3>Click en cualquier año</h3>
+      </nav>
+    </div>
+    
+    <!-- Resto del contenido -->
+    <section class="content">
+      <div class="carousel-container">
+        <div class="carousel">
+          <img src="1964_Mustang1_resized.jpg" alt="Ford Mustang " class="active">
+          <img src="1964_Mustang2_resized.jpg" alt="Ford Mustang ">
+          <img src="1964_Mustang3_resized.jpg" alt="Ford Mustang ">
+        </div>
+        <div class="text">
+          <h2>Características del Mustang 1964</h2>
+          <ul>
+            <li><strong>Motores disponibles:</strong>
+              <ul>
+                <li>6 cilindros en línea de 2.8L (101 HP)</li>
+                <li>V8 de 4.3L (164 HP)</li>
+                <li>V8 de 4.7L (hasta 271 HP en versión Hi-Po)</li>
+              </ul>
+            </li>
+            <li><strong>Diferencias con el Mustang 1965 "oficial":</strong>
+              <ul>
+                <li>Generador eléctrico en lugar de alternador</li>
+                <li>Interruptor de luces en la parte inferior del tablero</li>
+                <li>Soporte de capó más grueso</li>
+                <li>Emblema "Ford Mustang" en los tapones de gasolina</li>
+              </ul>
+            </li>
+            <li><strong>Opciones de carrocería:</strong>
+              <ul>
+                <li>Convertible</li>
+                <li>Coupé</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-nav">
+      <ul class="nav">
+        <li><a href="linea.html">Página Anterior</a></li>
+        <li><a href="1967.html">Siguiente Página</a></li>
+      </ul>
+    </div>        
+    <p>&copy; 2024 El Rincón del Mustang. Todos los derechos reservados.</p>
+    <p><a href="1964.html" style="color: white; text-decoration: underline;">Volver arriba</a></p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousels = document.querySelectorAll('.carousel');
+      carousels.forEach(carousel => {
+        let index = 0;
+        const images = carousel.querySelectorAll('img');
+        const totalImages = images.length;
+        setInterval(() => {
+          images[index].classList.remove('active');
+          index = (index + 1) % totalImages;
+          images[index].classList.add('active');
+        }, 6000);
+      });
+    });
+    
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

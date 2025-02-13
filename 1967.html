@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Mustang, Ford, Ford Mustang, Coches, Shelby, GT, Fastback, American Muscle, Dark Horse">
+  <meta name="description" content="Página para los amantes de los Mustang. Conoce la historia, modelos y características de estos icónicos coches.">
+  <link rel="icon" href="shelb.png" type="image/png">
+  <link rel="canonical" href="https://daniel-sanchez-del-campo.github.io/">
+  <title>El Rincón del MUSTANG</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .logo {
+      font-size: 2em;
+      text-align: center;
+    }
+    
+    /* Menú de navegación principal */
+    #menu {
+      background-color: #333;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      z-index: 1001;
+    }
+    
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #555;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    .menu {
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    .menu ul {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .menu li {
+      display: inline-block;
+    }
+    
+    .nav > li {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .nav li a {
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    
+    .nav li a:hover {
+      background-color: #444;
+    }
+    
+    .nav li ul {
+      display: none;
+      position: absolute;
+      min-width: 140px;
+      z-index: 1000;
+      background-color: #333;
+    }
+    
+    .nav li:hover > ul {
+      display: block;
+    }
+    
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    h1, h2 {
+      color: #1a1a1a;
+    }
+    
+    /* Contenedor introductorio (título y breve párrafo) */
+    .intro-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    /* Contenedor de dos columnas para el bloque de "1964: El Nacimiento del Mustang" y "Modelos a destacar" */
+    .dual-container {
+      display: flex;
+      flex-wrap: nowrap;       /* Forzamos que los elementos permanezcan en la misma línea */
+      align-items: flex-start;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 20px auto;
+      overflow-x: auto;        /* En caso de pantallas muy estrechas, permite scroll horizontal */
+    }
+    
+    /* Bloque izquierdo: Texto sobre el nacimiento del Mustang */
+    .dual-container .text {
+      flex: 1 1 auto;
+      min-width: 0;
+      margin-right: 20px;
+    }
+    
+    /* Bloque derecho: Modelos a destacar */
+    #tiempo {
+      background-color: #cac9c9;
+      padding: 10px;
+      border-radius: 8px;
+      width: 250px;            /* Ancho fijo */
+      flex-shrink: 0;          /* Evita que se reduzca y provoque wrapping */
+    }
+    
+    #tiempo ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #tiempo li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    #tiempo li a {
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: inline-block;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    
+    #tiempo li a:hover {
+      background-color: #444;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+    
+    .text ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    
+    .text ul li {
+      margin-bottom: 5px;
+    }
+    
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+    
+    .carousel-container:hover {
+      transform: scale(1.02);
+    }
+    
+    .carousel {
+      width: 50%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      opacity: 0;
+      transition: opacity 1s ease, left 1s ease;
+    }
+    
+    .carousel img.active {
+      left: 0;
+      opacity: 1;
+    }
+    
+    .footer-nav {
+      text-align: center;
+    }
+    
+    .footer-nav ul {
+      display: inline-block;
+      padding: 0;
+    }
+    
+    /* Opcional: Ajustes para dispositivos móviles */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      .menu {
+        display: none;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+        right: 0;
+      }
+      
+      .menu.active {
+        display: block;
+      }
+      
+      .nav > li {
+        display: block;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">El Rincón del Mustang</div>
+  </header>
+  
+  <!-- Menú de Navegación -->
+  <nav id="menu">
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="menu">
+      <ul class="nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="paso_tiempo.html">El paso del tiempo</a></li>
+        <li><a href="https://www.ford.es/turismos/nuevo-mustang#mustang">Página Ford</a></li>
+        <li><a href="enlaces.html">Páginas de interes</a></li>
+        <li><a href="capilla.html">La Gran Capilla</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <!-- Sección introductoria completa -->
+    <div class="intro-container">
+      <h1>Evolución del Mustang a lo largo de los años: 1967</h1>
+      <p>Vamos a ver cómo han evolucionado los Mustang a lo largo de los años, principalmente en cuanto a sus diseños.</p>
+    </div>
+    
+    <!-- Contenedor de dos columnas: izquierda, el texto "1964: El Nacimiento del Mustang"; derecha, "Modelos a destacar" -->
+    <div class="dual-container">
+      <div class="text">
+        <h2>1967: Ford Mustang Shelby GT500</h2>
+        <p>El <b>Ford Mustang Shelby GT500</b> de <b>1967</b> marcó un punto de inflexión en la historia del <b>Mustang</b> y de los muscle cars en general. Fue el resultado de la evolución del <b>Mustang</b> como un auto no solo deportivo, sino de <b>alto rendimiento</b>, con una imagen <b>más agresiva</b> y un motor <b>más potente</b> que nunca.</p>
+        <p> <b>Ford</b>  necesitaba mantenerse a la vanguardia y, para ello, recurrió nuevamente a <b>Carroll Shelby</b>, quien ya había trabajado en las versiones de alto rendimiento del <b>Mustang</b> en años anteriores, como el <b>GT350 de 1965</b>.</p>
+      </div>
+      <nav id="tiempo">
+        <h2>Modelos a destacar:</h2>
+        <ul class="nav">
+          <li><a href="1964.html">1964</a></li>
+          <li><a href="2012.html">2012</a></li>
+          <li><a href="2017.html">2017</a></li>
+          <li><a href="2024.html">2024</a></li>
+        </ul>
+        <h3>Click en cualquier año</h3>
+      </nav>
+    </div>
+    
+    <!-- Resto del contenido -->
+    <section class="content">
+      <div class="carousel-container">
+        <div class="carousel">
+          <img src="gt-500-fastback-1967_resized.webp" alt="Ford Mustang " class="active">
+          <img src="gt-500-fastback-19672_resized.webp" alt="Ford Mustang ">
+          <img src="gt-500-fastback-19673_resized.webp" alt="Ford Mustang ">
+        </div>
+        <div class="text">
+            <h2>Características del Mustang Shelby GT500 1967</h2>
+            <ul>
+              <li><strong>Motores disponibles:</strong>
+                <ul>
+                  <li>V8 428 Police Interceptor de 7.0L (355+ HP)</li>
+                  <li>Carburadores Holley de doble cuerpo</li>
+                  <li>Torque de 420 lb-ft</li>
+                </ul>
+              </li>
+              <li><strong>Transmisión:</strong>
+                <ul>
+                  <li>Manual de 4 velocidades</li>
+                  <li>Automática de 3 velocidades</li>
+                </ul>
+              </li>
+              <li><strong>Diseño y aerodinámica:</strong>
+                <ul>
+                  <li>Tomas de aire funcionales en capó y laterales</li>
+                  <li>Faros de niebla integrados en la parrilla</li>
+                  <li>Spoiler trasero para mejorar estabilidad</li>
+                  <li>Rayas deportivas con el logo "GT500"</li>
+                </ul>
+              </li>
+              <li><strong>Producción y exclusividad:</strong>
+                <ul>
+                  <li>Solo 2,048 unidades fabricadas</li>
+                  <li>Modelo altamente coleccionable</li>
+                  <li>Inspiración para el famoso "Eleanor" en Gone in 60 Seconds</li>
+                </ul>
+              </li>
+            </ul>
+            
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-nav">
+      <ul class="nav">
+        <li><a href="linea.html">Página Anterior</a></li>
+        <li><a href="2012.html">Siguiente Página</a></li>
+      </ul>
+    </div>        
+    <p>&copy; 2024 El Rincón del Mustang. Todos los derechos reservados.</p>
+    <p><a href="1967.html" style="color: white; text-decoration: underline;">Volver arriba</a></p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousels = document.querySelectorAll('.carousel');
+      carousels.forEach(carousel => {
+        let index = 0;
+        const images = carousel.querySelectorAll('img');
+        const totalImages = images.length;
+        setInterval(() => {
+          images[index].classList.remove('active');
+          index = (index + 1) % totalImages;
+          images[index].classList.add('active');
+        }, 6000);
+      });
+    });
+    
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
