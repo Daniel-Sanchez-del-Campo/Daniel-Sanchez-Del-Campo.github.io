@@ -45,13 +45,13 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #333; /* Se asegura que el fondo se mantenga oscuro */
+      background-color: #333; /* Aseguramos que el fondo se mantenga oscuro */
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    /* Botón hamburguesa (tomado de referencia) */
+    /* Botón hamburguesa (se muestra solo en móviles) */
     .hamburger {
-      display: none; /* Oculto por defecto en escritorio */
+      display: none; /* Oculto en escritorio */
       flex-direction: column;
       cursor: pointer;
       position: fixed;
@@ -109,14 +109,17 @@
       max-width: 1200px;
       margin: auto;
     }
+
     h1, h2 {
       color: #1a1a1a;
     }
+
     .content {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
+
     .carousel-container {
       display: flex;
       align-items: center;
@@ -128,15 +131,18 @@
       padding: 20px;
       transition: transform 0.3s;
     }
+
     .carousel-container:hover {
       transform: scale(1.02);
     }
+
     .carousel {
       width: 50%;
       height: 300px;
       overflow: hidden;
       position: relative;
     }
+
     .carousel img {
       width: 100%;
       height: 100%;
@@ -147,13 +153,16 @@
       opacity: 0;
       transition: opacity 1s ease, left 1s ease;
     }
+
     .carousel img.active {
       left: 0;
       opacity: 1;
     }
+
     .text {
       max-width: 45%;
     }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -161,10 +170,12 @@
       color: white;
       position: relative;
     }
+
     .text ul {
       list-style-type: disc;
       padding-left: 20px;
     }
+
     .text ul li {
       margin-bottom: 5px;
     }
@@ -202,15 +213,14 @@
   <header>
     <div class="logo">El Rincón del Mustang</div>
   </header>
-
   <nav id="menu">
-    <!-- Botón hamburguesa (se muestra en móviles) -->
-    <div class="hamburger" id="menu-toggle" onclick="toggleMenu()">
+    <!-- Botón hamburguesa: sin atributo inline onclick -->
+    <div class="hamburger" id="menu-toggle">
       <div></div>
       <div></div>
       <div></div>
     </div>
-    <!-- Contenedor del menú de navegación -->
+    <!-- Contenedor del menú -->
     <div class="menu" id="menu-container">
       <ul class="nav" id="nav-menu">
         <li><a href="index.html">Inicio</a></li>
@@ -221,7 +231,6 @@
       </ul>
     </div>
   </nav>
-
   <main>
     <section>
       <h1>Bienvenido al mundo del Mustang</h1>
@@ -289,7 +298,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Carrusel: cada contenedor alterna imágenes cada 6 segundos
+      // Carrusel: alterna imágenes cada 6 segundos
       const carousels = document.querySelectorAll('.carousel');
       carousels.forEach(carousel => {
         let index = 0;
@@ -302,14 +311,14 @@
         }, 6000);
       });
 
-      // Alternativa a la llamada inline (si se prefiere usar addEventListener)
+      // Evento para el botón hamburguesa
       const menuToggle = document.getElementById('menu-toggle');
       const menuContainer = document.getElementById('menu-container');
       menuToggle.addEventListener('click', function() {
         menuContainer.classList.toggle('active');
       });
 
-      // Sticky menu: al hacer scroll se añade/quita la clase 'sticky'
+      // Sticky menu: se añade/quita la clase 'sticky' al hacer scroll
       const menu = document.getElementById('menu');
       window.addEventListener('scroll', function() {
         if (window.scrollY > 0) {
@@ -318,22 +327,7 @@
           menu.classList.remove('sticky');
         }
       });
-
-      // Actualizar color del botón de menú (opcional)
-      function updateMenuColor() {
-        const header = document.querySelector('header');
-        const headerColor = window.getComputedStyle(header).backgroundColor;
-        // Se podría condicionar el color si se desea, en este ejemplo se fuerza gris oscuro
-        menuToggle.style.color = '#333';
-      }
-      updateMenuColor();
     });
-
-    // Función de toggle para el menú (llamada inline desde el botón hamburguesa)
-    function toggleMenu() {
-      const menuContainer = document.getElementById('menu-container');
-      menuContainer.classList.toggle('active');
-    }
   </script>
 </body>
 </html>
