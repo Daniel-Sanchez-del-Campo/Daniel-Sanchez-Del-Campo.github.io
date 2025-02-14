@@ -24,6 +24,7 @@
       background-color: #1a1a1a;
       color: #fff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
     }
     
     .logo {
@@ -36,6 +37,7 @@
       background-color: #333;
       width: 100%;
       overflow: hidden;
+      position: relative;
     }
     
     .hamburger {
@@ -64,6 +66,7 @@
     .menu ul {
       padding: 0;
       margin: 0;
+      list-style: none;
     }
     
     .menu li {
@@ -110,24 +113,24 @@
       color: #1a1a1a;
     }
     
-    /* Contenedor introductorio (título y breve párrafo) */
+    /* Sección introductoria */
     .intro-container {
       text-align: center;
       margin-bottom: 20px;
     }
     
-    /* Contenedor de dos columnas para el bloque de "1964: El Nacimiento del Mustang" y "Modelos a destacar" */
+    /* Contenedor de dos columnas */
     .dual-container {
       display: flex;
-      flex-wrap: nowrap;       /* Forzamos que los elementos permanezcan en la misma línea */
+      flex-wrap: nowrap; /* Mantiene elementos en línea */
       align-items: flex-start;
       justify-content: space-between;
       max-width: 1200px;
       margin: 20px auto;
-      overflow-x: auto;        /* En caso de pantallas muy estrechas, permite scroll horizontal */
+      overflow-x: auto; /* Permite scroll horizontal en pantallas muy estrechas */
     }
     
-    /* Bloque izquierdo: Texto sobre el nacimiento del Mustang */
+    /* Bloque izquierdo: Contenido textual */
     .dual-container .text {
       flex: 1 1 auto;
       min-width: 0;
@@ -139,8 +142,8 @@
       background-color: #cac9c9;
       padding: 10px;
       border-radius: 8px;
-      width: 250px;            /* Ancho fijo */
-      flex-shrink: 0;          /* Evita que se reduzca y provoque wrapping */
+      width: 250px; /* Ancho fijo */
+      flex-shrink: 0;
     }
     
     #tiempo ul {
@@ -174,22 +177,7 @@
       gap: 20px;
     }
     
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #1a1a1a;
-      color: #fff;
-    }
-    
-    .text ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-    
-    .text ul li {
-      margin-bottom: 5px;
-    }
-    
+    /* Carrusel */
     .carousel-container {
       display: flex;
       align-items: center;
@@ -228,6 +216,22 @@
       opacity: 1;
     }
     
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+    
+    .text ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    
+    .text ul li {
+      margin-bottom: 5px;
+    }
+    
     .footer-nav {
       text-align: center;
     }
@@ -235,14 +239,17 @@
     .footer-nav ul {
       display: inline-block;
       padding: 0;
+      list-style: none;
     }
     
-    /* Opcional: Ajustes para dispositivos móviles */
+    /* Ajustes para dispositivos móviles */
     @media (max-width: 768px) {
+      /* Mostrar menú hamburguesa */
       .hamburger {
         display: flex;
       }
       
+      /* Ocultar menú principal hasta activarlo */
       .menu {
         display: none;
         width: 100%;
@@ -261,6 +268,29 @@
       .nav > li {
         display: block;
         text-align: center;
+      }
+      
+      /* Apilar columnas del dual container */
+      .dual-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .dual-container .text,
+      #tiempo {
+        margin-right: 0;
+        width: 90%;
+      }
+      
+      /* Ajustar carrusel para móviles */
+      .carousel-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .carousel {
+        width: 100%;
+        height: 200px;
       }
     }
   </style>
@@ -289,21 +319,21 @@
   </nav>
   
   <main>
-    <!-- Sección introductoria completa -->
+    <!-- Sección introductoria -->
     <div class="intro-container">
       <h1>Evolución del Mustang a lo largo de los años: 1967</h1>
       <p>Vamos a ver cómo han evolucionado los Mustang a lo largo de los años, principalmente en cuanto a sus diseños.</p>
     </div>
     
-    <!-- Contenedor de dos columnas: izquierda, el texto "1964: El Nacimiento del Mustang"; derecha, "Modelos a destacar" -->
+    <!-- Contenedor de dos columnas: texto y modelos a destacar -->
     <div class="dual-container">
       <div class="text">
         <h2>2012: El Renacimiento del Boss 302</h2>
         <p>El nombre <b>Boss 302</b> es legendario en la historia del <b>Mustang</b>. <b>Ford</b> lo introdujo originalmente en <b>1969</b> como una versión de <b>alto rendimiento</b> del <b>Mustang</b>, diseñado para competir en la serie de carreras <b>Trans-Am</b>. Fue desarrollado por <b>Larry Shinoda</b>, un diseñador clave de <b>Ford</b>, y su motor <b>V8 de 302 pulgadas cúbicas</b> se convirtió en un ícono.</p>
-        <p>En <b>2012</b>, <b>Ford</b> decidió revivir el <b>Boss 302</b> después de más de 40 años, basándolo en la <b>quinta generación</b> del <b>Mustang</b> . Esta versión no solo mejoró la potencia y el manejo respecto al Mustang GT normal, sino que también introdujo una versión aún más extrema: el <b>Boss 302 Laguna Seca</b>.</p>
+        <p>En <b>2012</b>, <b>Ford</b> decidió revivir el <b>Boss 302</b> después de más de 40 años, basándolo en la <b>quinta generación</b> del <b>Mustang</b>. Esta versión no solo mejoró la potencia y el manejo respecto al Mustang GT normal, sino que también introdujo una versión aún más extrema: el <b>Boss 302 Laguna Seca</b>.</p>
         <h2>¿Por qué Laguna Seca?</h2>
         <p>El nombre <b>"Laguna Seca"</b> hace referencia al famoso circuito de carreras en California, conocido por curvas desafiantes como el <b>"Corkscrew"</b> (una de las curvas más difíciles del mundo). <b>Ford</b> usó esta pista como referencia para desarrollar esta versión especial, que era aún <b>más radical</b> que el Boss 302 estándar.</p>
-    </div>
+      </div>
       <nav id="tiempo">
         <h2>Modelos a destacar:</h2>
         <ul class="nav">
@@ -316,42 +346,43 @@
       </nav>
     </div>
     
-    <!-- Resto del contenido -->
+    <!-- Sección de contenido adicional -->
     <section class="content">
       <div class="carousel-container">
         <div class="carousel">
-          <img src="lagunaSeca1_resized.jpg" alt="Ford Mustang " class="active">
-          <img src="lagunaSeca2_resized.jpg" alt="Ford Mustang ">
-          <img src="lagunaSeca3_resized.jpg" alt="Ford Mustang ">
+          <img src="lagunaSeca1_resized.jpg" alt="Ford Mustang" class="active">
+          <img src="lagunaSeca2_resized.jpg" alt="Ford Mustang">
+          <img src="lagunaSeca3_resized.jpg" alt="Ford Mustang">
         </div>
         <div class="text">
-            <h2>Características del Mustang Boss 302 Laguna Seca 2012</h2>
-            <ul>
+          <h2>Características del Mustang Boss 302 Laguna Seca 2012</h2>
+          <ul>
             <li><strong>Motorización:</strong>
-                <ul>
+              <ul>
                 <li>V8 5.0L Coyote modificado (444 HP y 380 lb-ft de torque)</li>
                 <li>Admisión del Mustang GT350 para mejor flujo de aire</li>
                 <li>Escape lateral activo con sonido agresivo</li>
                 <li>Línea roja a 7,500 RPM</li>
-                </ul>
+              </ul>
             </li>
             <li><strong>Transmisión y chasis:</strong>
-                <ul>
+              <ul>
                 <li>Transmisión manual Tremec de 6 velocidades</li>
                 <li>Diferencial Torsen de deslizamiento limitado</li>
                 <li>Suspensión ajustada para circuito con amortiguadores más rígidos</li>
                 <li>Barra estabilizadora trasera más gruesa</li>
-                </ul>
+              </ul>
             </li>
             <li><strong>Diseño y exclusividad:</strong>
-                <ul>
+              <ul>
                 <li>Colores exclusivos: Silver Ingot con gráficos rojos o Black con gráficos rojos</li>
                 <li>Rines de 19 pulgadas con neumáticos Pirelli P Zero Corsa</li>
                 <li>Asientos Recaro deportivos de alto soporte</li>
                 <li>Placa numerada de producción</li>
-                </ul>
+              </ul>
             </li>
-            </ul>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
