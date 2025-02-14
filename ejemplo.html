@@ -304,7 +304,8 @@
   
   <!-- Menú de Navegación -->
   <nav id="menu">
-    <div class="hamburger" onclick="toggleMenu()">
+    <!-- Se ha removido el onclick inline y se le asigna el id "menu-toggle" -->
+    <div class="hamburger" id="menu-toggle">
       <div></div>
       <div></div>
       <div></div>
@@ -410,13 +411,19 @@
       });
     });
     
+    // Único cambio: manejo del menú de hamburguesa sin usar onclick inline
     function toggleMenu() {
       const menu = document.querySelector('.menu');
       menu.classList.toggle('active');
     }
+    
+    // Asignar el evento al elemento de la hamburguesa
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      menuToggle.addEventListener('click', toggleMenu);
+    });
   </script>
 </body>
 </html>
-
 
 
