@@ -398,6 +398,7 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Carrusel
       const carousels = document.querySelectorAll('.carousel');
       carousels.forEach(carousel => {
         let index = 0;
@@ -411,13 +412,12 @@
       });
     });
     
-    // Único cambio: manejo del menú de hamburguesa sin usar onclick inline
+    // Manejo del menú hamburguesa para resoluciones móviles
     function toggleMenu() {
       const menu = document.querySelector('.menu');
       menu.classList.toggle('active');
     }
     
-    // Asignar el evento al elemento de la hamburguesa
     document.addEventListener('DOMContentLoaded', function() {
       const menuToggle = document.getElementById('menu-toggle');
       menuToggle.addEventListener('click', toggleMenu);
@@ -425,5 +425,6 @@
   </script>
 </body>
 </html>
+
 
 
