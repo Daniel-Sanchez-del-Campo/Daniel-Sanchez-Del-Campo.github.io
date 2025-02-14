@@ -24,6 +24,7 @@
       background-color: #1a1a1a;
       color: #fff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
     }
     
     .logo {
@@ -39,11 +40,11 @@
       position: relative;
     }
     
-    /* Botón hamburguesa: se posiciona de forma fija para móviles */
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
+      /* Posición para móviles: se mostrará sobre la cabecera */
       position: fixed;
       top: 70px;
       right: 20px;
@@ -66,6 +67,7 @@
     .menu ul {
       padding: 0;
       margin: 0;
+      list-style: none;
     }
     
     .menu li {
@@ -142,7 +144,7 @@
       padding: 10px;
       border-radius: 8px;
       width: 250px;            /* Ancho fijo */
-      flex-shrink: 0;          /* Evita que se reduzca */
+      flex-shrink: 0;          /* Evita que se reduzca y provoque wrapping */
     }
     
     #tiempo ul {
@@ -237,14 +239,20 @@
     .footer-nav ul {
       display: inline-block;
       padding: 0;
+      list-style: none;
     }
     
     /* Ajustes para dispositivos móviles */
     @media (max-width: 768px) {
+      /* Mostrar el icono de menú y ajustarlo en la cabecera */
       .hamburger {
         display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
       }
       
+      /* El menú se oculta hasta que se active */
       .menu {
         display: none;
         width: 100%;
@@ -264,6 +272,28 @@
         display: block;
         text-align: center;
       }
+      
+      /* Apilamos las columnas de la dual container */
+      .dual-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .dual-container .text, #tiempo {
+        margin-right: 0;
+        width: 90%;
+      }
+      
+      /* Ajustamos el carrusel para que ocupe toda la anchura */
+      .carousel-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .carousel {
+        width: 100%;
+        height: 200px;
+      }
     }
   </style>
 </head>
@@ -274,13 +304,12 @@
   
   <!-- Menú de Navegación -->
   <nav id="menu">
-    <!-- Botón hamburguesa (sin onclick inline) -->
-    <div class="hamburger" id="menu-toggle">
+    <div class="hamburger" onclick="toggleMenu()">
       <div></div>
       <div></div>
       <div></div>
     </div>
-    <div class="menu" id="menu-container">
+    <div class="menu">
       <ul class="nav">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="paso_tiempo.html">El paso del tiempo</a></li>
@@ -292,13 +321,13 @@
   </nav>
   
   <main>
-    <!-- Sección introductoria -->
+    <!-- Sección introductoria completa -->
     <div class="intro-container">
       <h1>Evolución del Mustang a lo largo de los años: 1964</h1>
       <p>Vamos a ver cómo han evolucionado los Mustang a lo largo de los años, principalmente en cuanto a sus diseños.</p>
     </div>
     
-    <!-- Contenedor dual: Texto y "Modelos a destacar" -->
+    <!-- Contenedor de dos columnas: izquierda, el texto "1964: El Nacimiento del Mustang"; derecha, "Modelos a destacar" -->
     <div class="dual-container">
       <div class="text">
         <h2>1964: El Nacimiento del Mustang</h2>
@@ -321,9 +350,9 @@
     <section class="content">
       <div class="carousel-container">
         <div class="carousel">
-          <img src="1964_Mustang1_resized.jpg" alt="Ford Mustang" class="active">
-          <img src="1964_Mustang2_resized.jpg" alt="Ford Mustang">
-          <img src="1964_Mustang3_resized.jpg" alt="Ford Mustang">
+          <img src="1964_Mustang1_resized.jpg" alt="Ford Mustang " class="active">
+          <img src="1964_Mustang2_resized.jpg" alt="Ford Mustang ">
+          <img src="1964_Mustang3_resized.jpg" alt="Ford Mustang ">
         </div>
         <div class="text">
           <h2>Características del Mustang 1964</h2>
@@ -368,14 +397,6 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Configuramos el botón hamburguesa para alternar el menú
-      const hamburger = document.getElementById('menu-toggle');
-      const menu = document.getElementById('menu-container');
-      hamburger.addEventListener('click', function() {
-        menu.classList.toggle('active');
-      });
-      
-      // Carrusel: alterna imágenes cada 6 segundos
       const carousels = document.querySelectorAll('.carousel');
       carousels.forEach(carousel => {
         let index = 0;
@@ -388,7 +409,11 @@
         }, 6000);
       });
     });
+    
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
-
