@@ -295,27 +295,36 @@
         <p><a href="#menu" style="color: white; text-decoration: underline;">Volver arriba</a></p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const carousels = document.querySelectorAll('.carousel');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousels = document.querySelectorAll('.carousel');
 
-            carousels.forEach(carousel => {
-                let index = 0;
-                const images = carousel.querySelectorAll('img');
-                const totalImages = images.length;
+        carousels.forEach(carousel => {
+            let index = 0;
+            const images = carousel.querySelectorAll('img');
+            const totalImages = images.length;
 
-                setInterval(() => {
-                    images[index].classList.remove('active');
-                    index = (index + 1) % totalImages;
-                    images[index].classList.add('active');
-                }, 6000);
-            });
+            setInterval(() => {
+                images[index].classList.remove('active');
+                index = (index + 1) % totalImages;
+                images[index].classList.add('active');
+            }, 6000);
         });
+    });
 
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            menu.classList.toggle('active');
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+    }
+
+    document.addEventListener('click', function (e) {
+        const menu = document.querySelector('.menu');
+        const hamburger = document.querySelector('.hamburger');
+        if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+            menu.classList.remove('active');
         }
-    </script>
+    });
+</script>
+
 </body>
 </html>
