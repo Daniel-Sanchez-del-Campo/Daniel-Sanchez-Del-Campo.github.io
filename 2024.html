@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Mustang, Ford, Ford Mustang, Coches, Shelby, GT, Fastback, American Muscle, Dark Horse">
-  <meta name="description" content="Página para los amantes de los Mustang. Conoce la historia, modelos y características de estos icónicos coches.">
+  <meta name="keywords"
+    content="Mustang, Ford, Ford Mustang, Coches, Shelby, GT, Fastback, American Muscle, Dark Horse">
+  <meta name="description"
+    content="Página para los amantes de los Mustang. Conoce la historia, modelos y características de estos icónicos coches.">
   <link rel="icon" href="shelb.png" type="image/png">
   <link rel="canonical" href="https://daniel-sanchez-del-campo.github.io/">
   <title>El Rincón del MUSTANG</title>
@@ -15,7 +18,7 @@
       padding: 0;
       background-color: #f0f0f0;
     }
-    
+
     header {
       display: flex;
       justify-content: center;
@@ -26,12 +29,12 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       position: relative;
     }
-    
+
     .logo {
       font-size: 2em;
       text-align: center;
     }
-    
+
     /* Menú de navegación principal */
     #menu {
       background-color: #333;
@@ -39,7 +42,7 @@
       overflow: hidden;
       position: relative;
     }
-    
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -49,7 +52,7 @@
       right: 20px;
       z-index: 1001;
     }
-    
+
     .hamburger div {
       width: 25px;
       height: 3px;
@@ -57,27 +60,27 @@
       margin: 5px 0;
       transition: 0.3s;
     }
-    
+
     .menu {
       display: flex;
       justify-content: space-around;
     }
-    
+
     .menu ul {
       padding: 0;
       margin: 0;
       list-style: none;
     }
-    
+
     .menu li {
       display: inline-block;
     }
-    
-    .nav > li {
+
+    .nav>li {
       position: relative;
       display: inline-block;
     }
-    
+
     .nav li a {
       background-color: #000;
       color: #fff;
@@ -86,11 +89,11 @@
       display: block;
       transition: background-color 0.3s;
     }
-    
+
     .nav li a:hover {
       background-color: #444;
     }
-    
+
     .nav li ul {
       display: none;
       position: absolute;
@@ -98,65 +101,69 @@
       z-index: 1000;
       background-color: #333;
     }
-    
-    .nav li:hover > ul {
+
+    .nav li:hover>ul {
       display: block;
     }
-    
+
     main {
       padding: 20px;
       max-width: 1200px;
       margin: auto;
     }
-    
-    h1, h2 {
+
+    h1,
+    h2 {
       color: #1a1a1a;
     }
-    
+
     /* Sección introductoria */
     .intro-container {
       text-align: center;
       margin-bottom: 20px;
     }
-    
+
     /* Contenedor de dos columnas */
     .dual-container {
       display: flex;
-      flex-wrap: nowrap; /* Mantiene elementos en línea */
+      flex-wrap: nowrap;
+      /* Mantiene elementos en línea */
       align-items: flex-start;
       justify-content: space-between;
       max-width: 1200px;
       margin: 20px auto;
-      overflow-x: auto; /* Permite scroll horizontal en pantallas muy estrechas */
+      overflow-x: auto;
+      /* Permite scroll horizontal en pantallas muy estrechas */
     }
-    
+
     /* Bloque izquierdo: Contenido textual */
     .dual-container .text {
       flex: 1 1 auto;
       min-width: 0;
       margin-right: 20px;
     }
-    
+
     /* Bloque derecho: Modelos a destacar */
     #tiempo {
       background-color: #cac9c9;
       padding: 10px;
       border-radius: 8px;
-      width: 250px; /* Ancho fijo */
+      width: 250px;
+      /* Ancho fijo */
       flex-shrink: 0;
     }
-    
+
     #tiempo ul {
       list-style: none;
       margin: 0;
       padding: 0;
     }
-    
+
     #tiempo li {
       display: inline-block;
       margin-right: 10px;
     }
-    
+
     #tiempo li a {
       background-color: #000;
       color: #fff;
@@ -166,17 +173,17 @@
       border-radius: 8px;
       transition: background-color 0.3s;
     }
-    
+
     #tiempo li a:hover {
       background-color: #444;
     }
-    
+
     .content {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
-    
+
     /* Carrusel */
     .carousel-container {
       display: flex;
@@ -188,18 +195,18 @@
       padding: 20px;
       transition: transform 0.3s;
     }
-    
+
     .carousel-container:hover {
       transform: scale(1.02);
     }
-    
+
     .carousel {
       width: 50%;
       height: 300px;
       overflow: hidden;
       position: relative;
     }
-    
+
     .carousel img {
       width: 100%;
       height: 100%;
@@ -210,45 +217,46 @@
       opacity: 0;
       transition: opacity 1s ease, left 1s ease;
     }
-    
+
     .carousel img.active {
       left: 0;
       opacity: 1;
     }
-    
+
     footer {
       text-align: center;
       padding: 20px;
       background-color: #1a1a1a;
       color: #fff;
     }
-    
+
     .text ul {
       list-style-type: disc;
       padding-left: 20px;
     }
-    
+
     .text ul li {
       margin-bottom: 5px;
     }
-    
+
     .footer-nav {
       text-align: center;
     }
-    
+
     .footer-nav ul {
       display: inline-block;
       padding: 0;
       list-style: none;
     }
-    
+
     /* Ajustes para dispositivos móviles */
     @media (max-width: 768px) {
+
       /* Mostrar menú hamburguesa */
       .hamburger {
         display: flex;
       }
-      
+
       /* Ocultar menú principal hasta activarlo */
       .menu {
         display: none;
@@ -260,34 +268,34 @@
         top: 60px;
         right: 0;
       }
-      
+
       .menu.active {
         display: block;
       }
-      
-      .nav > li {
+
+      .nav>li {
         display: block;
         text-align: center;
       }
-      
+
       /* Apilar columnas del dual container */
       .dual-container {
         flex-direction: column;
         align-items: center;
       }
-      
+
       .dual-container .text,
       #tiempo {
         margin-right: 0;
         width: 90%;
       }
-      
+
       /* Ajustar carrusel para móviles */
       .carousel-container {
         flex-direction: column;
         align-items: center;
       }
-      
+
       .carousel {
         width: 100%;
         height: 200px;
@@ -295,13 +303,14 @@
     }
   </style>
 </head>
-<body>
+
+<body id="top">
   <header>
     <div class="logo">El Rincón del Mustang</div>
   </header>
-  
+
   <!-- Menú de Navegación -->
-  <nav id="menu">
+  <nav id="menu" role="navigation" aria-label="Menú principal">
     <div class="hamburger" onclick="toggleMenu()">
       <div></div>
       <div></div>
@@ -317,20 +326,23 @@
       </ul>
     </div>
   </nav>
-  
+
   <main>
     <!-- Sección introductoria -->
     <div class="intro-container">
       <h1>Evolución del Mustang a lo largo de los años: 2024</h1>
-      <p>Vamos a ver cómo han evolucionado los Mustang a lo largo de los años, principalmente en cuanto a sus diseños.</p>
+      <p>Vamos a ver cómo han evolucionado los Mustang a lo largo de los años, principalmente en cuanto a sus diseños.
+      </p>
     </div>
-    
+
     <!-- Contenedor de dos columnas: texto y modelos a destacar -->
     <div class="dual-container">
       <div class="text">
         <h2>El Mustang más importante de 2024: Mustang Dark Horse </h2>
-        <p>El <b>Mustang Dark Horse 2024</b> fue un modelo crucial para <b>Ford</b>, ya que representó la versión más agresiva y orientada al rendimiento dentro de la <b>séptima generación</b> del <b>Mustang</b>. </p>
-        <p>Se presentó como un modelo totalmente <b>nuevo</b>, marcando la primera vez en <b>más</b> de <b>20 años</b> que <b>Ford</b> introducía una nueva sublínea de desempeño dentro de la familia <b>Mustang</b>.</p>
+        <p>El <b>Mustang Dark Horse 2024</b> fue un modelo crucial para <b>Ford</b>, ya que representó la versión más
+          agresiva y orientada al rendimiento dentro de la <b>séptima generación</b> del <b>Mustang</b>. </p>
+        <p>Se presentó como un modelo totalmente <b>nuevo</b>, marcando la primera vez en <b>más</b> de <b>20 años</b>
+          que <b>Ford</b> introducía una nueva sublínea de desempeño dentro de la familia <b>Mustang</b>.</p>
       </div>
       <nav id="tiempo">
         <h2>Modelos a destacar:</h2>
@@ -343,66 +355,67 @@
         <h3>Click en cualquier año</h3>
       </nav>
     </div>
-    
+
     <!-- Sección de contenido adicional -->
     <section class="content">
       <div class="carousel-container">
         <div class="carousel">
-          <img src="dark1_resized.jpg" alt="Ford Mustang" class="active">
-          <img src="dark2_resized.jpg" alt="Ford Mustang">
-          <img src="dark3_resized.jpg" alt="Ford Mustang">
+          <img src="dark1_resized.jpg" alt="Vista frontal del Ford Mustang Dark Horse 2024" class="active">
+          <img src="dark2_resized.jpg" alt="Perfil lateral del Ford Mustang Dark Horse 2024">
+          <img src="dark3_resized.jpg" alt="Vista trasera del Ford Mustang Dark Horse 2024">
+
         </div>
         <div class="text">
-            <h2>Características del Mustang Dark Horse 2024</h2>
-            <ul>
-              <li><strong>Motorización:</strong>
-                <ul>
-                  <li>V8 5.0L Coyote de cuarta generación con 500 HP y 418 lb-ft de torque</li>
-                  <li>Bielas forjadas del Shelby GT500 para mayor resistencia</li>
-                  <li>Sistema de admisión optimizado para mejor desempeño en pista</li>
-                </ul>
-              </li>
-              <li><strong>Transmisión y chasis:</strong>
-                <ul>
-                  <li>Transmisión manual Tremec de 6 velocidades con palanca de titanio impresa en 3D</li>
-                  <li>Opción de transmisión automática de 10 velocidades con cambios optimizados</li>
-                </ul>
-              </li>
-              <li><strong>Diseño y aerodinámica:</strong>
-                <ul>
-                  <li>Paquete aerodinámico exclusivo con tomas de aire más grandes</li>
-                  <li>Alerón trasero funcional para mayor carga aerodinámica</li>
-                  <li>Color exclusivo "Blue Ember" con emblemas oscurecidos</li>
-                  <li>Difusor trasero prominente para mejorar estabilidad a alta velocidad</li>
-                </ul>
-              </li>
-              <li><strong>Tecnología y experiencia de conducción:</strong>
-                <ul>
-                  <li>Cuadro de instrumentos digital de 12.4 pulgadas personalizable</li>
-                  <li>Modos de manejo específicos para pista y conducción deportiva</li>
-                  <li>Asientos Recaro opcionales para mayor soporte en conducción agresiva</li>
-                  <li>Sistema de escape activo con sonido ajustable</li>
-                </ul>
-              </li>
-            </ul>
-                 
-      </div>
+          <h2>Características del Mustang Dark Horse 2024</h2>
+          <ul>
+            <li><strong>Motorización:</strong>
+              <ul>
+                <li>V8 5.0L Coyote de cuarta generación con 500 HP y 418 lb-ft de torque</li>
+                <li>Bielas forjadas del Shelby GT500 para mayor resistencia</li>
+                <li>Sistema de admisión optimizado para mejor desempeño en pista</li>
+              </ul>
+            </li>
+            <li><strong>Transmisión y chasis:</strong>
+              <ul>
+                <li>Transmisión manual Tremec de 6 velocidades con palanca de titanio impresa en 3D</li>
+                <li>Opción de transmisión automática de 10 velocidades con cambios optimizados</li>
+              </ul>
+            </li>
+            <li><strong>Diseño y aerodinámica:</strong>
+              <ul>
+                <li>Paquete aerodinámico exclusivo con tomas de aire más grandes</li>
+                <li>Alerón trasero funcional para mayor carga aerodinámica</li>
+                <li>Color exclusivo "Blue Ember" con emblemas oscurecidos</li>
+                <li>Difusor trasero prominente para mejorar estabilidad a alta velocidad</li>
+              </ul>
+            </li>
+            <li><strong>Tecnología y experiencia de conducción:</strong>
+              <ul>
+                <li>Cuadro de instrumentos digital de 12.4 pulgadas personalizable</li>
+                <li>Modos de manejo específicos para pista y conducción deportiva</li>
+                <li>Asientos Recaro opcionales para mayor soporte en conducción agresiva</li>
+                <li>Sistema de escape activo con sonido ajustable</li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
     </section>
   </main>
-  
+
   <footer>
     <div class="footer-nav">
       <ul class="nav">
         <li><a href="linea.html">Página Anterior</a></li>
         <li><a href="linea.html">Siguiente Página</a></li>
       </ul>
-    </div>        
+    </div>
     <p>&copy; 2024 El Rincón del Mustang. Todos los derechos reservados.</p>
-    <p><a href="2024.html" style="color: white; text-decoration: underline;">Volver arriba</a></p>
+    <p><a href="#top" style="color: white; text-decoration: underline;">Volver arriba</a></p>
   </footer>
-  
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const carousels = document.querySelectorAll('.carousel');
       carousels.forEach(carousel => {
         let index = 0;
@@ -415,11 +428,12 @@
         }, 6000);
       });
     });
-    
+
     function toggleMenu() {
       const menu = document.querySelector('.menu');
       menu.classList.toggle('active');
     }
   </script>
 </body>
+
 </html>
